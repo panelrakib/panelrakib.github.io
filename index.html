@@ -1,43 +1,204 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PANEL RAKIB</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANEL RAKIB STORE</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#050b15;color:#eef7ff;font-family:Arial,sans-serif}
-.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:90px}
-header{height:82px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;background:#07101c;border-bottom:1px solid #10354a;position:sticky;top:0;z-index:3}
-.brand{display:flex;align-items:center;gap:12px}.logo{width:54px;height:54px;border:2px solid #00eaff;border-radius:17px;display:grid;place-items:center;color:#00eaff;font-size:23px;font-weight:900;box-shadow:0 0 15px #00eaff55}.brand b{font-size:21px}.balance{padding:11px 17px;border:1px solid #19e397;border-radius:30px;color:#25f39a;background:#062319;box-shadow:0 0 15px #00ff7540}
-.card{margin:18px;border:1px solid #0d4a61;border-radius:25px;padding:14px;background:linear-gradient(180deg,#071421,#050c17);box-shadow:0 0 24px #00cfff12}
-.status{display:flex;justify-content:space-between;margin-bottom:12px}.pill{padding:8px 15px;border-radius:25px;background:#073c30;color:#20efa0;border:1px solid #0cbb7b;font-weight:700}.hot{background:#5b2418;color:#ffd0c0;border-color:#ff6338;box-shadow:0 0 15px #ff4d2e66}
-.hero{height:190px;border-radius:18px;display:grid;place-items:center;background:radial-gradient(circle,#0b3644,#06131f 70%);border:1px solid #123c50;overflow:hidden}.hero span{font-size:42px;font-weight:900;color:#14e4ee;text-shadow:0 0 22px #00eaff}
-.title{text-align:center;font-size:22px;font-weight:900;margin:18px 4px}.features{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px;border:1px solid #173145;border-radius:17px;color:#cbd6e4}.features div{padding:6px}
-.buy,.update{width:100%;border:0;border-radius:15px;padding:16px;margin-top:12px;font-size:17px;font-weight:900;color:#fff}.buy{background:linear-gradient(90deg,#0bd6e9,#087bff);box-shadow:0 0 18px #008cff55}.update{background:linear-gradient(90deg,#0fc887,#0aa86d)}
-.product{margin-top:16px;padding:14px;border:1px solid #17364b;border-radius:17px;background:#06101b}.product h3{margin:0 0 7px}.price{color:#1df19a;font-size:21px;font-weight:900}
-input{width:100%;padding:13px;margin:6px 0;background:#07101a;border:1px solid #24465a;border-radius:10px;color:#fff}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:78px;background:#07101d;border-top:1px solid #17364a;display:flex;justify-content:space-around;align-items:center;z-index:5}.nav div{text-align:center;color:#7f91a8;font-size:11px}.nav .active{color:#00eaff}.home{width:55px;height:55px;margin-top:-27px;border-radius:50%;display:grid;place-items:center;background:#08bff5;border:5px solid #06101c;box-shadow:0 0 25px #00d9ff;font-size:25px;color:#fff}
-small{display:block;text-align:center;color:#71859a;margin-top:10px}
-</style></head>
-<body><div class="app">
-<header><div class="brand"><div class="logo">M</div><b>PANEL RAKIB</b></div><div class="balance">৳ <b>0.00</b></div></header>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#050d18;
+  color:white;
+}
+.header{
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #12354a;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-box{
+  width:58px;height:58px;
+  border:3px solid #00d9ff;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:#00d9ff;
+}
+.balance{
+  border:2px solid #00e99a;
+  color:#00ff9d;
+  padding:12px 18px;
+  border-radius:30px;
+  font-weight:bold;
+}
+.container{padding:25px 18px 100px}
+.hero{
+  text-align:center;
+  padding:45px 15px;
+  border:1px solid #12455e;
+  border-radius:25px;
+  background:#071827;
+}
+.hero h1{
+  font-size:48px;
+  color:#00d9ff;
+  margin:20px 0;
+}
+.status{
+  display:inline-block;
+  padding:12px 25px;
+  border-radius:30px;
+  background:#063c31;
+  color:#00ff9d;
+  font-weight:bold;
+}
+h2{margin-top:35px}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.card{
+  padding:25px 15px;
+  text-align:center;
+  border:1px solid #12455e;
+  border-radius:22px;
+  background:#081322;
+}
+.card h3{font-size:22px}
+.price{
+  color:#00ff9d;
+  font-size:24px;
+  font-weight:bold;
+  margin:15px 0;
+}
+.buy{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:25px;
+  background:linear-gradient(90deg,#00c9ff,#087cff);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#07111e;
+  border-top:1px solid #12354a;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.bottom div{
+  color:#8291a5;
+  text-align:center;
+  font-size:13px;
+}
+.bottom .active{color:#00d9ff}
+</style>
+</head>
 
-<section class="card">
-<div class="status"><span class="pill">● ONLINE</span><span class="pill hot">🔥 HOT</span></div>
-<div class="hero"><span>STORE</span></div>
-<div class="title">✨🔥 PREMIUM DIGITAL STORE ❤️✨</div>
-<div class="features"><div>🛡️ 100% Secure</div><div>🎧 24/7 Support</div><div>⚡ Instant Buy</div><div>🔑 Digital Key</div></div>
-<div class="product"><h3>Demo Product</h3><p>Premium digital product</p><span class="price">৳100</span><button class="buy" onclick="buy()">🛒 PURCHASE</button></div>
-<button class="update" onclick="alert('Update section — connect your backend here.')">👥 UPDATE FILE</button>
-<small>Demo storefront. No real payment is processed.</small>
-</section>
+<body>
 
-<section class="card"><h2>Admin / Product Setup</h2>
-<input id="pn" placeholder="Product name"><input id="pp" placeholder="Price"><button class="buy" onclick="save()">SAVE PRODUCT</button><p id="msg"></p></section>
-<section class="card"><h2>Orders</h2><p id="orders">No orders yet.</p></section>
-<nav class="nav"><div class="active">⌂<br>Store</div><div>☷<br>Orders</div><div><div class="home">+</div>Add Fund</div><div>🎧<br>Support</div><div>👤<br>Profile</div></nav>
+<div class="header">
+  <div class="logo">
+    <div class="logo-box">M</div>
+    <div>
+      <b style="font-size:20px">PANEL RAKIB</b><br>
+      <span>STORE</span>
+    </div>
+  </div>
+
+  <div class="balance">৳ 0.00</div>
 </div>
-<script>
-function buy(){document.getElementById('orders').textContent='Demo order created. Real orders need a backend/database.'}
-function save(){let n=pn.value,p=pp.value;if(!n||!p)return alert('Product name ও price দিন');msg.textContent='Saved locally: '+n+' — ৳'+p}
-</script></body></html>
+
+<div class="container">
+
+  <div class="hero">
+    <span class="status">● ONLINE</span>
+    <h1>STORE</h1>
+    <p>🔥 Premium Digital Store 🔥</p>
+  </div>
+
+  <h2>📦 Select Package</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>1 Hour</h3>
+      <div class="price">৳ 17.99</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>2 Hours</h3>
+      <div class="price">৳ 28.00</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>3 Hours</h3>
+      <div class="price">৳ 39.99</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>4 Hours</h3>
+      <div class="price">৳ 49.99</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>5 Hours</h3>
+      <div class="price">৳ 60.00</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>6 Hours</h3>
+      <div class="price">৳ 80.00</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>7 Hours</h3>
+      <div class="price">৳ 99.99</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+    <div class="card">
+      <h3>8 Hours</h3>
+      <div class="price">৳ 119.99</div>
+      <button class="buy">PURCHASE</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="active">🏠<br>Store</div>
+  <div>📋<br>Orders</div>
+  <div>➕<br>Add Fund</div>
+  <div>🎧<br>Support</div>
+  <div>👤<br>Profile</div>
+</div>
+
+</body>
+</html>
