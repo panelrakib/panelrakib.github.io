@@ -1,140 +1,472 @@
 
 <!DOCTYPE html>
-h2{margin-top:35px}
-.grid{
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PANEL RAKIB STORE</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  padding:0 0 90px 0;
+  background:#06111f;
+  color:white;
+  font-family:Arial, sans-serif;
+}
+
+.header{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#071321;
+  border-bottom:1px solid #073b50;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  line-height:1.3;
+}
+
+.logo span{
+  color:#00eaff;
+}
+
+.balance{
+  border:2px solid #00df9a;
+  border-radius:30px;
+  padding:10px 15px;
+  color:#00ff9d;
+  font-weight:bold;
+}
+
+.container{
+  max-width:650px;
+  margin:auto;
+  padding:20px;
+}
+
+.card{
+  border:1px solid #07516a;
+  border-radius:25px;
+  padding:15px;
+  margin-bottom:25px;
+  background:#081726;
+  box-shadow:0 0 20px rgba(0,220,255,.08);
+}
+
+.badges{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.badge{
+  padding:9px 14px;
+  border-radius:25px;
+  background:#064332;
+  border:1px solid #00ef9d;
+  color:#00ffad;
+  font-weight:bold;
+}
+
+.hot{
+  background:#55251b;
+  border-color:#ff633c;
+  color:#ffb09a;
+}
+
+.banner{
+  height:190px;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:
+    linear-gradient(135deg,#063b66,#071321,#00506b);
+  border:1px solid #00a9cf;
+}
+
+.banner .tm{
+  font-size:55px;
+  font-weight:900;
+  color:#00ddff;
+  text-shadow:0 0 20px #00ddff;
+}
+
+.banner .sub{
+  font-size:17px;
+  font-weight:bold;
+  color:#dffcff;
+  margin-top:8px;
+}
+
+.title{
+  text-align:center;
+  font-size:21px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.features{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:16px;
+  gap:10px;
+  padding:15px;
+  border:1px solid #172c42;
+  border-radius:20px;
+  background:#07111e;
 }
-.card{
-  padding:25px 15px;
-  text-align:center;
-  border:1px solid #12455e;
-  border-radius:22px;
-  background:#081322;
-}
-.card h3{font-size:22px}
-.price{
-  color:#00ff9d;
-  font-size:24px;
+
+.feature{
+  padding:8px;
+  color:#d9e4f0;
   font-weight:bold;
-  margin:15px 0;
 }
-.buy{
+
+.feature b{
+  color:#00eaff;
+}
+
+.price{
+  text-align:center;
+  color:#00ff9d;
+  font-size:25px;
+  font-weight:bold;
+  margin:18px 0;
+}
+
+button{
   width:100%;
   border:0;
-  padding:13px;
   border-radius:25px;
-  background:linear-gradient(90deg,#00c9ff,#087cff);
+  padding:16px;
+  margin-top:10px;
   color:white;
-  font-size:16px;
+  font-size:18px;
   font-weight:bold;
+  background:linear-gradient(90deg,#11d9ed,#0877ff);
 }
+
+.download{
+  background:linear-gradient(90deg,#0cbd72,#00a768);
+}
+
+.section-title{
+  font-size:22px;
+  font-weight:bold;
+  margin:25px 0 15px;
+}
+
+.packages{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.package{
+  padding:24px 10px;
+  text-align:center;
+  border:2px solid #0a4055;
+  border-radius:22px;
+  background:#091424;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.package.selected{
+  border-color:#00eaff;
+  box-shadow:0 0 20px rgba(0,234,255,.25);
+}
+
+.package .money{
+  display:block;
+  color:#00ff9d;
+  font-size:22px;
+  margin-top:12px;
+}
+
 .bottom{
   position:fixed;
-  bottom:0;
   left:0;
   right:0;
-  height:70px;
-  background:#07111e;
-  border-top:1px solid #12354a;
+  bottom:0;
+  height:78px;
+  background:#071321;
+  border-top:1px solid #15384d;
   display:flex;
   justify-content:space-around;
   align-items:center;
+  z-index:10;
 }
-.bottom div{
-  color:#8291a5;
+
+.nav{
   text-align:center;
-  font-size:13px;
+  color:#8291a8;
+  font-size:12px;
+  font-weight:bold;
 }
-.bottom .active{color:#00d9ff}
+
+.nav.active{
+  color:#00eaff;
+}
+
+.home{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#09bdf0;
+  border:6px solid #071321;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  margin-top:-35px;
+  box-shadow:0 0 25px #00dfff;
+}
+
+@media(max-width:430px){
+
+  .logo{
+    font-size:19px;
+  }
+
+  .balance{
+    font-size:14px;
+    padding:9px 12px;
+  }
+
+  .banner{
+    height:165px;
+  }
+
+  .banner .tm{
+    font-size:45px;
+  }
+
+  .packages{
+    gap:10px;
+  }
+
+  .package{
+    padding:20px 7px;
+    font-size:17px;
+  }
+
+}
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<header class="header">
+
   <div class="logo">
-    <div class="logo-box">M</div>
-    <div>
-      <b style="font-size:20px">PANEL RAKIB</b><br>
-      <span>STORE</span>
-    </div>
+    PANEL <span>RAKIB</span><br>
+    STORE
   </div>
 
-  <div class="balance">৳ 0.00</div>
-</div>
-
-<div class="container">
-
-  <div class="hero">
-    <span class="status">● ONLINE</span>
-    <h1>STORE</h1>
-    <p>🔥 Premium Digital Store 🔥</p>
+  <div class="balance">
+    🪙 ৳ 0.00 ＋
   </div>
 
-  <h2>📦 Select Package</h2>
+</header>
 
-  <div class="grid">
 
-    <div class="card">
-      <h3>1 Hour</h3>
-      <div class="price">৳ 17.99</div>
-      <button class="buy">PURCHASE</button>
+<main class="container">
+
+  <section class="card">
+
+    <div class="badges">
+      <div class="badge">🟢 ONLINE</div>
+      <div class="badge hot">🔥 HOT</div>
     </div>
 
-    <div class="card">
-      <h3>2 Hours</h3>
-      <div class="price">৳ 28.00</div>
-      <button class="buy">PURCHASE</button>
+
+    <div class="banner">
+      <div class="tm">TM PANEL</div>
+      <div class="sub">NON-ROOT ANDROID</div>
     </div>
 
-    <div class="card">
-      <h3>3 Hours</h3>
-      <div class="price">৳ 39.99</div>
-      <button class="buy">PURCHASE</button>
+
+    <div class="title">
+      ✨ TM PANEL | NON-ROOT ANDROID ✨
     </div>
 
-    <div class="card">
-      <h3>4 Hours</h3>
-      <div class="price">৳ 49.99</div>
-      <button class="buy">PURCHASE</button>
+
+    <div class="features">
+
+      <div class="feature">
+        🛡️ <b>Secure</b>
+      </div>
+
+      <div class="feature">
+        🎧 <b>24/7 Support</b>
+      </div>
+
+      <div class="feature">
+        ⚡ <b>Instant Buy</b>
+      </div>
+
+      <div class="feature">
+        🔑 <b>Best Key</b>
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>5 Hours</h3>
-      <div class="price">৳ 60.00</div>
-      <button class="buy">PURCHASE</button>
+
+    <div class="price">
+      Starting from ৳70.00
     </div>
 
-    <div class="card">
-      <h3>6 Hours</h3>
-      <div class="price">৳ 80.00</div>
-      <button class="buy">PURCHASE</button>
-    </div>
 
-    <div class="card">
-      <h3>7 Hours</h3>
-      <div class="price">৳ 99.99</div>
-      <button class="buy">PURCHASE</button>
-    </div>
+    <button onclick="goPackage()">
+      🛒 PURCHASE KEY
+    </button>
 
-    <div class="card">
-      <h3>8 Hours</h3>
-      <div class="price">৳ 119.99</div>
-      <button class="buy">PURCHASE</button>
-    </div>
 
+    <button class="download" onclick="downloadMessage()">
+      👥 DOWNLOAD PANEL FILE
+    </button>
+
+  </section>
+
+
+  <div class="section-title">
+    📦 Select Package
   </div>
-</div>
 
-<div class="bottom">
-  <div class="active">🏠<br>Store</div>
-  <div>📋<br>Orders</div>
-  <div>➕<br>Add Fund</div>
-  <div>🎧<br>Support</div>
-  <div>👤<br>Profile</div>
-</div>
+
+  <section class="packages" id="packages">
+
+    <div class="package selected" onclick="selectPackage(this)">
+      1 day
+      <span class="money">৳ 70.00</span>
+    </div>
+
+
+    <div class="package" onclick="selectPackage(this)">
+      7 day
+      <span class="money">৳ 320.00</span>
+    </div>
+
+
+    <div class="package" onclick="selectPackage(this)">
+      15 day
+      <span class="money">৳ 449.99</span>
+    </div>
+
+
+    <div class="package" onclick="selectPackage(this)">
+      31 day
+      <span class="money">৳ 665.00</span>
+    </div>
+
+
+    <div class="package" onclick="selectPackage(this)">
+      Lifetime login ⚡
+      <span class="money">৳ 1,596.00</span>
+    </div>
+
+  </section>
+
+
+  <button onclick="purchase()">
+    💳 CONTINUE PURCHASE
+  </button>
+
+</main>
+
+
+<nav class="bottom">
+
+  <div class="nav">
+    💳<br>
+    Add Fund
+  </div>
+
+  <div class="nav">
+    ☷<br>
+    All Order
+  </div>
+
+  <div class="nav active">
+    <div class="home">⌂</div>
+    Store
+  </div>
+
+  <div class="nav">
+    ☁<br>
+    Update
+  </div>
+
+  <div class="nav">
+    🎧<br>
+    Helpline
+  </div>
+
+  <div class="nav">
+    👤<br>
+    Profile
+  </div>
+
+</nav>
+
+
+<script>
+
+let selectedPackage = "1 day";
+
+function selectPackage(element){
+
+  document.querySelectorAll(".package")
+  .forEach(function(item){
+    item.classList.remove("selected");
+  });
+
+  element.classList.add("selected");
+
+  selectedPackage = element.innerText;
+
+}
+
+function goPackage(){
+
+  document.getElementById("packages")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+function purchase(){
+
+  alert(
+    "Selected Package:\n\n" +
+    selectedPackage +
+    "\n\nPurchase system can be connected here."
+  );
+
+}
+
+function downloadMessage(){
+
+  alert(
+    "TM Panel download link will be added here."
+  );
+
+}
+
+</script>
 
 </body>
-</html
+</html>
