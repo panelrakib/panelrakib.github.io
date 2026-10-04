@@ -1,504 +1,519 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PANEL RAKIB STORE</title>
 
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  margin:0;
-  background:#050b15;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  padding-bottom:80px;
+ background:#050b15;
+ color:#fff;
+ font-family:Arial,sans-serif;
+ padding-bottom:75px
 }
-.container{max-width:520px;margin:auto}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  background:#07101d;
-  border-bottom:1px solid #12394d;
+.header{
+ background:#081321;
+ padding:12px 14px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #17334b;
+ position:sticky;
+ top:0;
+ z-index:10
 }
-
+.brand{display:flex;align-items:center;gap:9px}
 .logo{
-  width:48px;
-  height:48px;
-  border-radius:13px;
-  border:2px solid #00d9ff;
-  object-fit:cover;
+ width:42px;height:42px;border-radius:50%;
+ object-fit:cover;border:2px solid #00eaff
 }
+.brand h2{font-size:15px;color:#00eaff}
+.brand small{font-size:10px;color:#8797a8}
+.balance{text-align:right}
+.balance span{font-size:10px;color:#8797a8}
+.balance strong{display:block;color:#00ff9d;font-size:16px}
 
-.brand{
-  font-weight:bold;
-  line-height:1.2;
+.container{max-width:560px;margin:auto;padding:13px}
+
+.card{
+ background:#0a1422;
+ border:1px solid #17334b;
+ border-radius:14px;
+ padding:13px;
+ margin-bottom:13px
 }
-
-.brand small{
-  color:#00d9ff;
-  font-size:9px;
-}
-
-.balance{
-  margin-left:auto;
-  background:#06271e;
-  border:1px solid #00d98a;
-  color:#00ff99;
-  border-radius:25px;
-  padding:9px 12px;
-  font-weight:bold;
-}
-
-main{padding:12px}
 
 .banner{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  border-radius:15px;
-  border:1px solid #07566c;
+ width:100%;
+ height:145px;
+ object-fit:cover;
+ border-radius:11px;
+ background:#101d2d
+}
+
+.panel-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-top:12px
+}
+.panel-name{font-size:19px;font-weight:bold}
+.status{
+ background:#063a2b;
+ color:#00ff9d;
+ border:1px solid #087853;
+ border-radius:20px;
+ padding:5px 8px;
+ font-size:10px
+}
+.vip{
+ display:inline-block;
+ margin-top:7px;
+ padding:4px 8px;
+ border-radius:15px;
+ background:#392d05;
+ color:#ffd84d;
+ font-size:10px
 }
 
 .title{
-  text-align:center;
-  font-size:19px;
-  font-weight:bold;
-  margin:12px 0;
+ color:#00eaff;
+ font-size:15px;
+ margin-bottom:11px
 }
 
-.status{text-align:center}
-
-.status span{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:10px;
-  margin:3px;
+.panel-list,.packages{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:9px
 }
 
-.online{
-  color:#00ff99;
-  border:1px solid #00885a;
-  background:#06291f;
+.panel-btn,.package{
+ background:#07111e;
+ border:1px solid #1a354c;
+ border-radius:10px;
+ color:#b9c5d1;
+ padding:11px 8px;
+ cursor:pointer
 }
 
-.vip{
-  color:#ffc400;
-  border:1px solid #806200;
-  background:#2b2205;
+.panel-btn{
+ font-size:11px;
+ text-align:left
 }
 
-.features{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-  margin:12px 0;
-}
-
-.feature{
-  background:#0b1626;
-  border:1px solid #15384c;
-  border-radius:10px;
-  padding:12px 8px;
-  font-size:10px;
-  color:#b9c8d8;
-}
-
-.feature b{
-  display:block;
-  color:#00d9ff;
-  margin-bottom:5px;
-}
-
-.section{
-  color:#00d9ff;
-  font-weight:bold;
-  margin:13px 0 8px;
-}
-
-.packages{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-
-.package{
-  background:#0b1625;
-  border:1px solid #153d54;
-  border-radius:12px;
-  padding:15px 8px;
-  text-align:center;
-  cursor:pointer;
+.panel-btn.active{
+ border-color:#00eaff;
+ color:#00eaff;
+ background:#062534
 }
 
 .package.active{
-  border:2px solid #00d9ff;
-  box-shadow:0 0 18px #00d9ff30;
+ border-color:#00ff9d;
+ background:#06251e
 }
 
-.package b{font-size:11px}
+.package-name{
+ font-size:12px;
+ min-height:28px
+}
 
 .price{
-  display:block;
-  color:#00ff99;
-  font-size:14px;
-  font-weight:bold;
-  margin-top:7px;
+ color:#00ff9d;
+ font-size:18px;
+ font-weight:bold;
+ margin-top:6px
 }
 
-.box{
-  background:#091422;
-  border:1px solid #14394d;
-  border-radius:12px;
-  padding:12px;
-  margin-top:10px;
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:7px;
+ margin-top:12px
 }
 
-.quantity{
-  display:grid;
-  grid-template-columns:50px 1fr 50px;
-  gap:8px;
+.feature{
+ background:#07101c;
+ border:1px solid #173149;
+ border-radius:8px;
+ padding:8px 3px;
+ text-align:center;
+ color:#9eacba;
+ font-size:10px
 }
 
-.quantity button{
-  border:1px solid #08778c;
-  background:#071d2b;
-  color:#00d9ff;
-  border-radius:9px;
-  font-size:23px;
+.feature b{
+ display:block;
+ color:#00eaff;
+ margin-bottom:3px
 }
 
-.number{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #19475b;
-  border-radius:9px;
-  font-weight:bold;
+.qty-box{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:18px;
+ margin:12px 0
 }
 
-.quick{
-  display:flex;
-  gap:5px;
-  margin-top:8px;
+.qty-btn{
+ width:40px;
+ height:40px;
+ border-radius:50%;
+ border:1px solid #00eaff;
+ background:#071722;
+ color:#00eaff;
+ font-size:23px
 }
 
+.qty-number{
+ font-size:20px;
+ font-weight:bold;
+ min-width:30px;
+ text-align:center
+}
+
+.quick{display:flex;gap:6px}
 .quick button{
-  flex:1;
-  padding:7px 2px;
-  border:1px solid #20384c;
-  background:#07111d;
-  color:#9aacbf;
-  border-radius:6px;
-  font-size:9px;
+ flex:1;
+ padding:8px 2px;
+ background:#07111d;
+ border:1px solid #1b3b53;
+ border-radius:8px;
+ color:#aebdcc
 }
 
-.summary p{
-  display:flex;
-  justify-content:space-between;
-  color:#91a2b5;
-  font-size:11px;
+.summary{
+ background:#07111e;
+ border:1px solid #18344a;
+ border-radius:10px;
+ padding:11px
 }
 
-.summary b{color:#fff}
-
-.total{
-  border-top:1px solid #17364a;
-  padding-top:10px;
-  font-size:16px!important;
+.row{
+ display:flex;
+ justify-content:space-between;
+ padding:7px 0;
+ border-bottom:1px solid #102638;
+ color:#9eacba;
+ font-size:12px
 }
+.row strong{color:#fff}
+.total strong{color:#00ff9d;font-size:18px}
 
-.total b{color:#00eaff}
-
-.fund{
-  color:#ffbd19;
-  background:#17150b;
-  padding:9px;
-  border-radius:7px;
-  font-size:10px;
+.buy,.addfund{
+ width:100%;
+ padding:13px;
+ border-radius:10px;
+ font-weight:bold;
+ margin-top:9px
 }
-
 .buy{
-  width:100%;
-  border:0;
-  border-radius:10px;
-  padding:15px;
-  margin-top:10px;
-  background:linear-gradient(90deg,#ffb000,#ff7c00);
-  color:#111;
-  font-weight:bold;
-  font-size:13px;
+ border:0;
+ background:linear-gradient(90deg,#00c6ff,#00ff9d);
+ color:#001016
+}
+.addfund{
+ border:1px solid #00eaff;
+ background:#061925;
+ color:#00eaff
 }
 
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-  margin-top:8px;
+.notice{
+ margin-top:9px;
+ padding:9px;
+ border-radius:8px;
+ text-align:center;
+ font-size:11px;
+ background:#211b08;
+ color:#e6d477;
+ border:1px solid #6c5a18
 }
 
-.actions button{
-  border:0;
-  border-radius:9px;
-  padding:12px;
-  color:#fff;
-  font-weight:bold;
+.info{
+ text-align:center;
+ color:#8192a4;
+ font-size:11px;
+ line-height:1.6
 }
 
-.telegram{background:#149bea}
-.group{background:#05b879}
-
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:68px;
-  background:#050c17;
-  border-top:1px solid #143247;
-  display:flex;
-  justify-content:center;
-  z-index:20;
-}
-
-.bottom-inner{
-  width:100%;
-  max-width:520px;
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
+.bottom-nav{
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ height:65px;
+ background:#07111d;
+ border-top:1px solid #18364c;
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ z-index:20
 }
 
 .nav{
-  background:none;
-  border:0;
-  color:#72859a;
-  font-size:9px;
+ text-align:center;
+ color:#8293a4;
+ font-size:9px;
+ padding-top:8px
 }
+.nav div{font-size:19px;margin-bottom:3px}
+.nav.active{color:#00eaff}
 
-.nav span{
-  display:block;
-  font-size:19px;
-  margin-bottom:3px;
-}
-
-.nav.active{color:#00d9ff}
-
-.home{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  margin:-16px auto 2px;
-  display:flex!important;
-  align-items:center;
-  justify-content:center;
-  background:#00bfff;
-  color:#03101a;
-  border:4px solid #06111d;
+.telegram{
+ position:fixed;
+ right:14px;
+ bottom:80px;
+ width:47px;
+ height:47px;
+ border-radius:50%;
+ background:#159bd7;
+ color:white;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:22px;
+ text-decoration:none;
+ z-index:15
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<header class="header">
 
-<header>
-  <!-- তোমার logo-এর নাম logo.png রাখবে -->
-  <img src="logo.png" class="logo">
+<div class="brand">
+<img src="logo.png" class="logo">
+<div>
+<h2>PANEL RAKIB STORE</h2>
+<small>Premium Panel Shop</small>
+</div>
+</div>
 
-  <div class="brand">
-    PANEL RAKIB<br>STORE
-    <small>PREMIUM PANEL STORE</small>
-  </div>
+<div class="balance">
+<span>Balance</span>
+<strong id="balance">৳3.05</strong>
+</div>
 
-  <div class="balance">
-    🪙 ৳ <span id="balance">3.05</span>
-  </div>
 </header>
 
-<main>
+
+<main class="container">
+
+<!-- PANEL SELECT -->
+<section class="card">
+<div class="title">⚡ Select Panel</div>
+<div class="panel-list" id="panelList"></div>
+</section>
+
+
+<!-- PANEL -->
+<section class="card">
 
 <img id="banner" class="banner" src="panel1.jpg">
 
-<div id="title" class="title">
-  ✦ ANGRY MOOD ROOT ✦
+<div class="panel-head">
+<div class="panel-name" id="panelName">
+ANGRY MOOD ROOT
 </div>
 
-<div class="status">
-  <span class="online">● STATUS: ONLINE</span>
-  <span class="vip">🔥 VIP EDITION</span>
+<div class="status">● ONLINE</div>
 </div>
+
+<span class="vip">★ VIP PANEL</span>
 
 <div class="features">
 
 <div class="feature">
-<b>⚡ Instant Key Dispatch</b>
-Fast delivery after purchase
+<b>⚡ Fast</b>
+Instant
 </div>
 
 <div class="feature">
-<b>🛡 100% Anti-Ban</b>
-Protected bypass system
+<b>🛡 Safe</b>
+Secure
 </div>
 
 <div class="feature">
-<b>🎧 24/7 Dedicated Support</b>
-Quick customer help
-</div>
-
-<div class="feature">
-<b>✓ Tested & Working</b>
-Regularly checked
+<b>24/7</b>
+Support
 </div>
 
 </div>
 
-<div class="section">📦 Select Package</div>
+</section>
 
-<div id="packages" class="packages"></div>
 
-<div class="box">
+<!-- PACKAGE -->
+<section class="card">
 
-<div class="section">
-▣ Select Quantity
-</div>
+<div class="title">📦 Select Package</div>
 
-<div class="quantity">
+<div class="packages" id="packages"></div>
 
-<button onclick="changeQty(-1)">−</button>
+</section>
 
-<div class="number">
-<span id="qty">1</span> KEY
-</div>
 
-<button onclick="changeQty(1)">+</button>
+<!-- QUANTITY -->
+<section class="card">
+
+<div class="title">🔢 Quantity</div>
+
+<div class="qty-box">
+
+<button class="qty-btn" onclick="changeQty(-1)">−</button>
+
+<div class="qty-number" id="quantity">1</div>
+
+<button class="qty-btn" onclick="changeQty(1)">+</button>
 
 </div>
 
 <div class="quick">
+
 <button onclick="setQty(1)">1</button>
 <button onclick="setQty(2)">2</button>
 <button onclick="setQty(3)">3</button>
 <button onclick="setQty(5)">5</button>
 <button onclick="setQty(10)">10</button>
+
+</div>
+
+</section>
+
+
+<!-- SUMMARY -->
+<section class="card">
+
+<div class="title">🧾 Order Summary</div>
+
+<div class="summary">
+
+<div class="row">
+<span>Panel</span>
+<strong id="sumPanel">ANGRY MOOD ROOT</strong>
+</div>
+
+<div class="row">
+<span>Package</span>
+<strong id="sumPackage">1 Basic [4 Bots]</strong>
+</div>
+
+<div class="row">
+<span>Unit Price</span>
+<strong id="unitPrice">৳119.97</strong>
+</div>
+
+<div class="row">
+<span>Quantity</span>
+<strong id="sumQty">1</strong>
+</div>
+
+<div class="row total">
+<span>Total</span>
+<strong id="total">৳119.97</strong>
+</div>
+
+<div class="row">
+<span>Balance</span>
+<strong id="sumBalance">৳3.05</strong>
 </div>
 
 </div>
 
-<div class="box summary">
-
-<p>
-<span>Selected Plan:</span>
-<b id="selectedPlan">1 Basic</b>
-</p>
-
-<p>
-<span>Unit Price:</span>
-<b>৳ <span id="unit">119.97</span></b>
-</p>
-
-<p>
-<span>Quantity:</span>
-<b><span id="qty2">1</span> Key(s)</b>
-</p>
-
-<p>
-<span>Subtotal:</span>
-<b>৳ <span id="subtotal">119.97</span></b>
-</p>
-
-<p class="total">
-<span>Total Amount:</span>
-<b>৳ <span id="total">119.97</span></b>
-</p>
-
-<div class="fund">
-💳 Your Balance:
-<b>৳ <span id="balance2">3.05</span></b>
-<br>
-⚠ Insufficient Balance — Add Fund
+<div class="notice" id="balanceNotice">
+⚠️ Insufficient balance. Please add fund.
 </div>
 
-</div>
-
-<button class="buy" onclick="addFund()">
-🛒 INSUFFICIENT BALANCE — ADD FUND
+<button class="buy" onclick="buyNow()">
+🛒 PURCHASE NOW
 </button>
 
-<div class="actions">
-<button class="telegram">➤ Join Update Channel</button>
-<button class="group">👥 Join Group</button>
-</div>
+<button class="addfund" onclick="addFund()">
+＋ ADD FUND
+</button>
+
+</section>
+
+
+<!-- UPDATE -->
+<section class="card">
+
+<div class="title">📢 Stay Updated</div>
+
+<p class="info">
+নতুন Panel, Update এবং Offer পেতে আমাদের Update Channel-এ Join করুন।
+</p>
+
+<button class="addfund" onclick="joinChannel()">
+📢 JOIN UPDATE CHANNEL
+</button>
+
+</section>
 
 </main>
 
-<div class="bottom">
 
-<div class="bottom-inner">
+<a class="telegram" href="https://t.me/" target="_blank">✈</a>
 
-<button class="nav" onclick="addFund()">
-<span>💳</span>
+
+<!-- BOTTOM -->
+<nav class="bottom-nav">
+
+<div class="nav" onclick="addFund()">
+<div>💰</div>
 Add Fund
-</button>
+</div>
 
-<button class="nav">
-<span>☷</span>
+<div class="nav" onclick="orders()">
+<div>📦</div>
 All Order
-</button>
+</div>
 
-<button class="nav active">
-<span class="home">⌂</span>
+<div class="nav active">
+<div>🏪</div>
 Store
-</button>
+</div>
 
-<button class="nav">
-<span>☁</span>
+<div class="nav" onclick="joinChannel()">
+<div>📢</div>
 Update
-</button>
+</div>
 
-<button class="nav">
-<span>🎧</span>
+<div class="nav" onclick="helpline()">
+<div>🎧</div>
 Helpline
-</button>
+</div>
 
-<button class="nav">
-<span>👤</span>
+<div class="nav" onclick="profile()">
+<div>👤</div>
 Profile
-</button>
-
 </div>
 
-</div>
+</nav>
 
-</div>
 
 <script>
 
-const panels = [
+const panels=[
 
 {
 name:"ANGRY MOOD ROOT",
 image:"panel1.jpg",
-plans:[
-["1 Basic [ 4 Bots ]",119.97],
-["2 Basic [ 8 Bots ]",235],
-["3 Basic [ 12 Bots ]",349.99],
-["4 Basic [ 16 Bots ]",465.50]
+packages:[
+["1 Basic [4 Bots]",119.97],
+["2 Basic [8 Bots]",235],
+["3 Basic [12 Bots]",349.99],
+["4 Basic [16 Bots]",465.50]
 ]
 },
 
 {
 name:"FF GUILD GLORYBOT",
 image:"panel2.jpg",
-plans:[
+packages:[
 ["1 Day",80],
 ["7 Days",192.85],
 ["31 Days",798]
@@ -508,7 +523,7 @@ plans:[
 {
 name:"DRIP CLINT ROOT ANDROID",
 image:"panel3.jpg",
-plans:[
+packages:[
 ["1 Day",32],
 ["7 Days",192],
 ["15 Days",384],
@@ -519,7 +534,7 @@ plans:[
 {
 name:"TM PANEL V22",
 image:"panel4.jpg",
-plans:[
+packages:[
 ["1 Day",89.11],
 ["7 Days",299.99],
 ["15 Days",532],
@@ -530,38 +545,36 @@ plans:[
 ];
 
 let currentPanel=0;
-let currentPlan=0;
+let currentPackage=0;
 let quantity=1;
+let balance=3.05;
 
-function render(){
+function money(n){
+return "৳"+Number(n).toFixed(2);
+}
 
-const p=panels[currentPanel];
+function loadPanelList(){
 
-document.getElementById("banner").src=p.image;
-
-document.getElementById("title").innerText=
-"✦ "+p.name+" ✦";
-
-let box=document.getElementById("packages");
-
+let box=document.getElementById("panelList");
 box.innerHTML="";
 
-p.plans.forEach((plan,index)=>{
+panels.forEach((p,i)=>{
 
-let btn=document.createElement("div");
+let btn=document.createElement("button");
 
-btn.className="package "+
-(index===currentPlan?"active":"");
+btn.className="panel-btn "+
+(i===currentPanel?"active":"");
 
-btn.innerHTML=
-"<b>"+plan[0]+"</b>"+
-"<span class='price'>৳ "+plan[1].toFixed(2)+"</span>";
+btn.innerText="⚡ "+p.name;
 
 btn.onclick=()=>{
 
-currentPlan=index;
+currentPanel=i;
+currentPackage=0;
+quantity=1;
 
-render();
+loadPanelList();
+loadPanel();
 
 };
 
@@ -569,64 +582,167 @@ box.appendChild(btn);
 
 });
 
-let price=p.plans[currentPlan][1];
+}
 
-document.getElementById("selectedPlan").innerText=
-p.plans[currentPlan][0];
+function loadPanel(){
 
-document.getElementById("unit").innerText=
-price.toFixed(2);
+let p=panels[currentPanel];
 
-document.getElementById("qty").innerText=
-quantity;
+document.getElementById("panelName").innerText=p.name;
+document.getElementById("sumPanel").innerText=p.name;
+document.getElementById("banner").src=p.image;
 
-document.getElementById("qty2").innerText=
-quantity;
+let box=document.getElementById("packages");
 
-document.getElementById("subtotal").innerText=
-(price*quantity).toFixed(2);
+box.innerHTML="";
 
-document.getElementById("total").innerText=
-(price*quantity).toFixed(2);
+p.packages.forEach((pkg,i)=>{
+
+let div=document.createElement("div");
+
+div.className="package "+
+(i===currentPackage?"active":"");
+
+div.innerHTML=`
+<div class="package-name">${pkg[0]}</div>
+<div class="price">${money(pkg[1])}</div>
+`;
+
+div.onclick=()=>{
+
+currentPackage=i;
+loadPanel();
+
+};
+
+box.appendChild(div);
+
+});
+
+updateSummary();
 
 }
 
-function changeQty(x){
+function updateSummary(){
 
-quantity+=x;
+let p=panels[currentPanel];
+let pkg=p.packages[currentPackage];
 
-if(quantity<1) quantity=1;
+let total=pkg[1]*quantity;
 
-if(quantity>10) quantity=10;
+document.getElementById("sumPackage").innerText=pkg[0];
+document.getElementById("unitPrice").innerText=money(pkg[1]);
+document.getElementById("quantity").innerText=quantity;
+document.getElementById("sumQty").innerText=quantity;
+document.getElementById("total").innerText=money(total);
+document.getElementById("balance").innerText=money(balance);
+document.getElementById("sumBalance").innerText=money(balance);
 
-render();
+let notice=document.getElementById("balanceNotice");
+
+notice.innerText=
+balance>=total
+?"✅ Your balance is sufficient."
+:"⚠️ Insufficient balance. Please add fund.";
 
 }
 
-function setQty(x){
+function changeQty(n){
 
-quantity=x;
+quantity+=n;
 
-render();
+if(quantity<1)quantity=1;
+if(quantity>100)quantity=100;
+
+updateSummary();
+
+}
+
+function setQty(n){
+
+quantity=n;
+updateSummary();
+
+}
+
+function buyNow(){
+
+let p=panels[currentPanel];
+let pkg=p.packages[currentPackage];
+let total=pkg[1]*quantity;
+
+if(balance<total){
+
+alert(
+"❌ Insufficient Balance\n\n"+
+"Total: "+money(total)+
+"\nBalance: "+money(balance)
+);
+
+return;
+
+}
+
+if(!confirm(
+"Confirm Order?\n\n"+
+p.name+
+"\n"+pkg[0]+
+"\nQuantity: "+quantity+
+"\nTotal: "+money(total)
+))return;
+
+balance-=total;
+
+updateSummary();
+
+alert("✅ Order Submitted Successfully!");
 
 }
 
 function addFund(){
 
 alert(
-"Add Fund\n\nNagad: 01602133359\nMinimum Deposit: ৳100"
+"💰 ADD FUND\n\n"+
+"Nagad: 01602133359\n"+
+"Minimum Deposit: ৳100\n\n"+
+"Payment করার পর Transaction ID সহ Helpline-এ যোগাযোগ করুন।"
 );
 
 }
 
-render();
+function joinChannel(){
+
+window.open("https://t.me/","_blank");
+
+}
+
+function orders(){
+
+alert("📦 আপনার Order History এখানে দেখানো হবে।");
+
+}
+
+function helpline(){
+
+window.open("https://t.me/","_blank");
+
+}
+
+function profile(){
+
+alert(
+"👤 PROFILE\n\n"+
+"PANEL RAKIB STORE\n"+
+"Balance: "+money(balance)
+);
+
+}
+
+loadPanelList();
+loadPanel();
 
 </script>
 
 </body>
-  </html>index.html
-logo.png
-panel1.jpg
-panel2.jpg
-panel3.jpg
-panel4.jpg
+  </html>
+    
