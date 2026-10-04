@@ -1,281 +1,234 @@
 
-<!DOCTYPE html>
+    `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PANEL RAKIB STORE</title>
 
 <style>
 *{box-sizing:border-box}
-
 body{
   margin:0;
-  background:#030810;
-  color:#eefaff;
+  background:#030912;
+  color:#fff;
   font-family:Arial,sans-serif;
 }
-
 .app{
   max-width:520px;
   margin:auto;
   min-height:100vh;
   padding-bottom:85px;
-  background:linear-gradient(#071522,#02060b);
+  background:linear-gradient(#06121d,#02070d);
 }
-
-/* HEADER */
 header{
   position:sticky;
   top:0;
   z-index:10;
   display:flex;
   align-items:center;
+  padding:12px;
   gap:10px;
-  padding:14px;
-  background:#06111bee;
-  border-bottom:1px solid #16405a;
+  background:#06121df5;
+  border-bottom:1px solid #153b51;
 }
-
 .logo{
-  width:43px;
-  height:43px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#00e5ff,#0877ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-weight:900;
-  color:#00131b;
-  background:linear-gradient(135deg,#00e5ff,#1475ff);
-  box-shadow:0 0 25px #00d9ff55;
+  color:#00121a;
 }
-
 .brand{
   font-size:16px;
   font-weight:900;
 }
-
 .sub{
-  margin-top:3px;
+  color:#6f92a6;
   font-size:9px;
-  color:#7094a9;
+  margin-top:3px;
 }
-
 .balance{
   margin-left:auto;
-  padding:8px 11px;
-  border:1px solid #1b5873;
-  border-radius:12px;
-  color:#4be5ff;
-  background:#071b28;
-  font-size:12px;
-  font-weight:900;
-}
-
-/* MAIN */
-main{
-  padding:15px;
-}
-
-/* HERO */
-.hero{
-  padding:19px;
-  border:1px solid #174961;
-  border-radius:20px;
-  background:
-    radial-gradient(circle at 90% 0,#073b52,#091522 50%,#06101a);
-  box-shadow:0 0 35px #00d9ff12;
-}
-
-.badge{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:99px;
-  background:#082c27;
-  border:1px solid #17684f;
-  color:#3df19b;
-  font-size:10px;
-  font-weight:900;
-}
-
-h1{
-  margin:14px 0 7px;
-  font-size:28px;
-}
-
-.description{
-  color:#91aabb;
-  font-size:12px;
-  line-height:1.6;
-}
-
-.starting{
-  margin-top:12px;
-  color:#43e5ff;
-  font-size:22px;
-  font-weight:900;
-}
-
-/* FEATURES */
-.features{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
-  margin:15px 0;
-}
-
-.feature{
-  padding:12px;
-  border:1px solid #153b50;
-  border-radius:13px;
-  background:#081521;
-  color:#b9d0dc;
+  padding:8px 10px;
+  border:1px solid #17506b;
+  border-radius:10px;
+  color:#3fe5ff;
   font-size:11px;
 }
-
-.feature b{
-  display:block;
-  color:white;
-  margin-bottom:4px;
+main{padding:14px}
+.hero{
+  padding:18px;
+  border:1px solid #16485f;
+  border-radius:18px;
+  background:radial-gradient(circle at top right,#06405a,#08131e 60%);
 }
-
-/* PACKAGES */
-.title{
-  margin:20px 0 10px;
-  font-size:16px;
-  font-weight:900;
+.online{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#073328;
+  color:#35ee9c;
+  border:1px solid #17684f;
+  font-size:9px;
+  font-weight:bold;
 }
-
-.packages{
+.hero h1{
+  font-size:25px;
+  margin:12px 0 7px;
+}
+.hero p{
+  color:#89a6b5;
+  font-size:11px;
+  line-height:1.6;
+}
+.tabs{
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  padding:14px 0;
+}
+.tabs button{
+  white-space:nowrap;
+  border:1px solid #173d52;
+  background:#091620;
+  color:#7896a7;
+  padding:8px 12px;
+  border-radius:20px;
+}
+.tabs button.active{
+  background:#15dfff;
+  color:#001319;
+}
+.grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
 }
-
-.package{
-  padding:14px;
-  border:1px solid #183c50;
+.card{
+  background:#081520;
+  border:1px solid #143b50;
   border-radius:15px;
-  background:#091521;
-  cursor:pointer;
+  overflow:hidden;
 }
-
-.package.active{
-  border-color:#00d9ff;
-  box-shadow:0 0 20px #00d9ff22;
+.card img{
+  width:100%;
+  height:125px;
+  object-fit:cover;
+  display:block;
 }
-
-.package .time{
-  color:#9bb2c1;
-  font-size:12px;
+.card-body{padding:10px}
+.card h3{
+  font-size:13px;
+  margin:0 0 6px;
 }
-
-.package .price{
-  margin-top:7px;
-  color:white;
-  font-size:19px;
-  font-weight:900;
+.type{
+  color:#48e6ff;
+  font-size:8px;
 }
-
-.package.active .price{
-  color:#42e6ff;
+.info{
+  color:#7894a4;
+  font-size:9px;
+  line-height:1.5;
+  margin:7px 0;
 }
-
-/* PURCHASE */
-.purchase{
-  margin-top:18px;
-  padding:15px;
-  border:1px solid #18445c;
-  border-radius:18px;
-  background:#081521;
+.price{
+  color:#40e9ff;
+  font-size:15px;
+  font-weight:bold;
+  margin-bottom:8px;
 }
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:10px 0;
-  color:#9db5c4;
-  font-size:12px;
-}
-
-.quantity{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.quantity button{
-  width:36px;
-  height:36px;
-  border:1px solid #1b526d;
-  border-radius:10px;
-  background:#0a1d2c;
-  color:#43e4ff;
-  font-size:20px;
-}
-
-.quantity span{
-  min-width:20px;
-  text-align:center;
-  color:white;
-  font-weight:900;
-}
-
-.total{
-  color:#48e7ff;
-  font-size:24px;
-  font-weight:900;
-}
-
 .buy{
   width:100%;
-  padding:15px;
   border:0;
-  border-radius:13px;
-  background:linear-gradient(90deg,#00cfff,#1675ff);
-  color:#001018;
-  font-size:14px;
-  font-weight:1000;
-  cursor:pointer;
-}
-
-.note{
-  margin-top:10px;
-  text-align:center;
-  color:#607b8c;
+  border-radius:9px;
+  padding:9px;
+  background:linear-gradient(90deg,#00dfff,#1778ff);
+  color:#001219;
+  font-weight:900;
   font-size:10px;
 }
-
-/* BOTTOM NAV */
-nav{
+.bottom-nav{
   position:fixed;
-  left:50%;
   bottom:0;
+  left:50%;
   transform:translateX(-50%);
   width:min(520px,100%);
   height:72px;
+  background:#06111b;
+  border-top:1px solid #163b50;
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  background:#06101b;
-  border-top:1px solid #16394d;
   z-index:20;
 }
-
-nav button{
+.bottom-nav button{
   border:0;
   background:none;
-  color:#718d9f;
-  font-size:9px;
+  color:#6f8998;
+  font-size:8px;
 }
-
-nav button.active{
-  color:#42e4ff;
-}
-
-nav b{
+.bottom-nav button b{
   display:block;
-  margin-bottom:3px;
   font-size:18px;
+  margin-bottom:3px;
+}
+.bottom-nav button.active{
+  color:#36e5ff;
+}
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000b;
+  z-index:50;
+  display:none;
+  align-items:flex-end;
+}
+.sheet{
+  width:min(520px,100%);
+  margin:auto;
+  background:#07141f;
+  border:1px solid #17465d;
+  border-radius:20px 20px 0 0;
+  padding:17px;
+  max-height:85vh;
+  overflow:auto;
+}
+.sheet h2{margin:0 0 5px}
+.sheet p{
+  color:#88a5b5;
+  font-size:11px;
+}
+.packages{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+.package{
+  border:1px solid #173e52;
+  background:#091824;
+  color:#fff;
+  padding:10px;
+  border-radius:10px;
+  text-align:left;
+}
+.package b{
+  display:block;
+  color:#42e7ff;
+  margin-top:4px;
+}
+.close{
+  width:100%;
+  margin-top:12px;
+  padding:11px;
+  border:0;
+  border-radius:10px;
+  background:#102737;
+  color:#fff;
 }
 </style>
 </head>
@@ -288,8 +241,8 @@ nav b{
   <div class="logo">PR</div>
 
   <div>
-    <div class="brand">PANEL RAKIB STORE</div>
-    <div class="sub">PREMIUM PANEL SHOP</div>
+    <div class="brand">PANEL RAKIB</div>
+    <div class="sub">PREMIUM PANEL STORE</div>
   </div>
 
   <div class="balance">৳0.00</div>
@@ -297,236 +250,297 @@ nav b{
 
 <main>
 
-<section class="hero">
+<div class="hero">
+  <span class="online">● STORE ONLINE</span>
 
-  <span class="badge">● ONLINE • VIP</span>
+  <h1>WELCOME TO PANEL RAKIB</h1>
 
-  <h1>BALA MOD PRO</h1>
-
-  <div class="description">
-    Premium panel with fast key delivery,
+  <p>
+    Premium panels with fast delivery,
     stable performance and 24/7 support.
-  </div>
-
-  <div class="starting">
-    Starting ৳16.00
-  </div>
-
-</section>
-
-
-<div class="features">
-
-  <div class="feature">
-    <b>⚡ Instant Key</b>
-    Fast delivery
-  </div>
-
-  <div class="feature">
-    <b>🛡 Anti-Ban</b>
-    Protected setup
-  </div>
-
-  <div class="feature">
-    <b>✓ Tested</b>
-    Working panel
-  </div>
-
-  <div class="feature">
-    <b>☏ Support</b>
-    24/7 help
-  </div>
-
+  </p>
 </div>
 
-
-<div class="title">
-  Select Package
+<div class="tabs">
+  <button class="active">ALL</button>
+  <button>NON ROOT</button>
+  <button>ROOT</button>
+  <button>VIP</button>
 </div>
 
-<div class="packages" id="packages"></div>
+<div class="grid">
 
+<!-- PANEL 1 -->
+<div class="card">
+  <img src="panel1.jpg">
 
-<div class="purchase">
+  <div class="card-body">
+    <h3>TM PANEL</h3>
 
-  <div class="row">
+    <div class="type">● ONLINE • NON ROOT</div>
 
-    <span>Quantity</span>
-
-    <div class="quantity">
-
-      <button onclick="changeQuantity(-1)">−</button>
-
-      <span id="quantity">1</span>
-
-      <button onclick="changeQuantity(1)">+</button>
-
+    <div class="info">
+      Instant Key<br>
+      Anti-Ban<br>
+      24/7 Support
     </div>
 
+    <div class="price">৳17.99</div>
+
+    <button class="buy"
+      onclick="openPanel('TM PANEL')">
+      VIEW & BUY
+    </button>
   </div>
-
-
-  <div class="row">
-
-    <span>Total Amount</span>
-
-    <span class="total" id="total">
-      ৳16.00
-    </span>
-
-  </div>
-
-
-  <button class="buy" onclick="purchase()">
-    PURCHASE KEY
-  </button>
-
-
-  <div class="note">
-    Minimum deposit ৳100 • Nagad: 01602133359
-  </div>
-
 </div>
 
+
+<!-- PANEL 2 -->
+<div class="card">
+  <img src="panel2.jpg">
+
+  <div class="card-body">
+    <h3>BALA MOD PRO</h3>
+
+    <div class="type">● ONLINE • VIP</div>
+
+    <div class="info">
+      Fast Delivery<br>
+      Tested Working<br>
+      Premium Access
+    </div>
+
+    <div class="price">৳16.00</div>
+
+    <button class="buy"
+      onclick="openPanel('BALA MOD PRO')">
+      VIEW & BUY
+    </button>
+  </div>
+</div>
+
+
+<!-- PANEL 3 -->
+<div class="card">
+  <img src="panel3.jpg">
+
+  <div class="card-body">
+    <h3>TROLL MODS</h3>
+
+    <div class="type">● ONLINE • NON ROOT</div>
+
+    <div class="info">
+      Stable Server<br>
+      Fast Login<br>
+      24/7 Support
+    </div>
+
+    <div class="price">৳28.00</div>
+
+    <button class="buy"
+      onclick="openPanel('TROLL MODS')">
+      VIEW & BUY
+    </button>
+  </div>
+</div>
+
+
+<!-- PANEL 4 -->
+<div class="card">
+  <img src="panel4.jpg">
+
+  <div class="card-body">
+    <h3>TM PANEL VIP</h3>
+
+    <div class="type">● ONLINE • VIP</div>
+
+    <div class="info">
+      VIP Server<br>
+      Instant Key<br>
+      Premium Support
+    </div>
+
+    <div class="price">৳49.99</div>
+
+    <button class="buy"
+      onclick="openPanel('TM PANEL VIP')">
+      VIEW & BUY
+    </button>
+  </div>
+</div>
+
+</div>
 </main>
 
 
-<nav>
+<!-- BOTTOM NAV -->
 
-  <button>
-    <b>＋</b>
-    Add Fund
-  </button>
+<div class="bottom-nav">
 
-  <button>
-    <b>▣</b>
-    All Order
-  </button>
+<button onclick="addFund()">
+  <b>＋</b>
+  Add Fund
+</button>
 
-  <button class="active">
-    <b>⌂</b>
-    Store
-  </button>
+<button onclick="orders()">
+  <b>▣</b>
+  All Orders
+</button>
 
-  <button>
-    <b>↻</b>
-    Update
-  </button>
+<button class="active">
+  <b>⌂</b>
+  Store
+</button>
 
-  <button>
-    <b>☏</b>
-    Helpline
-  </button>
+<button onclick="location.reload()">
+  <b>↻</b>
+  Update
+</button>
 
-</nav>
+<button onclick="helpline()">
+  <b>☎</b>
+  Helpline
+</button>
 
+</div>
+
+</div>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="sheet">
+
+<h2 id="panelName">TM PANEL</h2>
+
+<p>
+Select your package.
+Minimum deposit ৳100.
+</p>
+
+<div class="packages">
+
+<button class="package">
+1 Hour
+<b>৳17.99</b>
+</button>
+
+<button class="package">
+2 Hours
+<b>৳28.00</b>
+</button>
+
+<button class="package">
+3 Hours
+<b>৳39.99</b>
+</button>
+
+<button class="package">
+4 Hours
+<b>৳49.99</b>
+</button>
+
+<button class="package">
+5 Hours
+<b>৳60.00</b>
+</button>
+
+<button class="package">
+6 Hours
+<b>৳80.00</b>
+</button>
+
+<button class="package">
+7 Hours
+<b>৳99.99</b>
+</button>
+
+<button class="package">
+8 Hours
+<b>৳119.99</b>
+</button>
+
+<button class="package">
+1 Day
+<b>৳70.00</b>
+</button>
+
+<button class="package">
+7 Days
+<b>৳320.00</b>
+</button>
+
+<button class="package">
+15 Days
+<b>৳449.99</b>
+</button>
+
+<button class="package">
+31 Days
+<b>৳665.00</b>
+</button>
+
+<button class="package">
+Lifetime
+<b>৳1,596.00</b>
+</button>
+
+</div>
+
+<button class="close" onclick="closePanel()">
+CLOSE
+</button>
+
+</div>
 </div>
 
 
 <script>
 
-const packages = [
+function openPanel(name){
 
-  ["1 Hour",16],
-  ["3 Hours",28],
-  ["6 Hours",49.99],
-  ["12 Hours",80],
-  ["24 Hours",99.99],
-  ["72 Hours (3 Days)",150],
-  ["168 Hours (7 Days)",266],
-  ["360 Hours (15 Days)",399],
-  ["720 Hours (31 Days)",798]
+ document.getElementById("panelName")
+ .innerText=name;
 
-];
-
-let selected = 0;
-let quantity = 1;
-
-const packageBox =
-document.getElementById("packages");
-
-
-function renderPackages(){
-
-  packageBox.innerHTML = "";
-
-  packages.forEach((item,index)=>{
-
-    const div =
-    document.createElement("div");
-
-    div.className =
-    "package " +
-    (index === selected ? "active" : "");
-
-    div.innerHTML = `
-      <div class="time">
-        ${item[0]}
-      </div>
-
-      <div class="price">
-        ৳${item[1].toFixed(2)}
-      </div>
-    `;
-
-    div.onclick = function(){
-
-      selected = index;
-
-      renderPackages();
-
-    };
-
-    packageBox.appendChild(div);
-
-  });
-
-  updateTotal();
+ document.getElementById("modal")
+ .style.display="flex";
 
 }
 
+function closePanel(){
 
-function updateTotal(){
-
-  const amount =
-  packages[selected][1] * quantity;
-
-  document.getElementById("total")
-  .textContent =
-  "৳" + amount.toFixed(2);
+ document.getElementById("modal")
+ .style.display="none";
 
 }
 
+function addFund(){
 
-function changeQuantity(number){
-
-  quantity += number;
-
-  if(quantity < 1){
-    quantity = 1;
-  }
-
-  document.getElementById("quantity")
-  .textContent = quantity;
-
-  updateTotal();
+ alert(
+ "Minimum Deposit: ৳100\n\n"+
+ "Nagad: 01602133359"
+ );
 
 }
 
+function orders(){
 
-function purchase(){
-
-  alert(
-    "Minimum deposit: ৳100\n\n" +
-    "Nagad: 01602133359"
-  );
+ alert("No orders yet.");
 
 }
 
+function helpline(){
 
-renderPackages();
+ alert(
+ "PANEL RAKIB HELPLINE\n\n"+
+ "Nagad: 01602133359"
+ );
+
+}
 
 </script>
 
 </body>
-  </html>
+</html>
