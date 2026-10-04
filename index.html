@@ -1,813 +1,910 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PANEL RAKIB STORE</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:#050b15;color:#fff;
-  font-family:Arial,sans-serif;
-  padding-bottom:78px
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
-button{font-family:inherit;cursor:pointer}
+
+body{
+  background:#070b12;
+  color:#fff;
+  min-height:100vh;
+  padding-bottom:85px;
+}
 
 .header{
-  height:76px;background:#081321;
-  border-bottom:1px solid #17334b;
-  display:flex;align-items:center;
-  justify-content:space-between;
-  padding:10px 14px;
-  position:sticky;top:0;z-index:50
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:16px;
+  background:#0d121b;
+  border-bottom:1px solid #202936;
+  position:sticky;
+  top:0;
+  z-index:20;
 }
-.brand{display:flex;align-items:center;gap:9px}
+
 .logo{
-  width:48px;height:48px;border-radius:50%;
-  border:2px solid #00eaff;object-fit:cover;
-  background:#07111e
-}
-.brand b{display:block;color:#00eaff;font-size:16px}
-.brand small{color:#8192a4;font-size:10px}
-.balance{text-align:right}
-.balance small{display:block;color:#8192a4}
-.balance b{color:#00ff9d;font-size:17px}
-
-.container{max-width:600px;margin:auto;padding:13px}
-
-.card{
-  background:#091322;
-  border:1px solid #17334b;
-  border-radius:15px;
-  padding:14px;
-  margin-bottom:13px
-}
-.title{
-  color:#00eaff;font-size:18px;
-  margin-bottom:12px
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#151c28;
+  border:2px solid #ffb300;
 }
 
-.panels{
-  display:grid;grid-template-columns:1fr 1fr;gap:9px
-}
-.panelBtn{
-  background:#07111e;color:#bdc8d3;
-  border:1px solid #1b3b53;
-  border-radius:11px;padding:12px 8px;
-  text-align:left;font-size:12px
-}
-.panelBtn.active{
-  border-color:#00eaff;
-  color:#00eaff;background:#062532
-}
-
-.panelImage{
-  width:100%;height:155px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#101f31,#06101c);
-  display:flex;align-items:center;
+.logoText{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
   justify-content:center;
+  background:linear-gradient(135deg,#ffb300,#ff6f00);
+  color:#111;
+  font-weight:900;
+  font-size:15px;
+}
+
+.header h1{
+  font-size:19px;
+  font-weight:800;
+}
+
+.balance{
+  margin-left:auto;
+  background:#151d29;
+  padding:8px 11px;
+  border-radius:10px;
+  font-size:12px;
+  color:#ffd166;
+}
+
+.container{
+  max-width:650px;
+  margin:auto;
+  padding:15px;
+}
+
+.section-title{
+  font-size:14px;
+  color:#9aa7b8;
+  margin:7px 0 10px;
+  text-transform:uppercase;
+}
+
+.panel-selector{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-bottom:15px;
+}
+
+.panel-btn{
+  border:1px solid #263142;
+  background:#101722;
+  color:#dce5ef;
+  padding:13px 8px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.panel-btn.active{
+  background:#ffb300;
+  color:#111;
+  border-color:#ffb300;
+}
+
+.hero{
+  background:linear-gradient(145deg,#151d29,#0c1119);
+  border:1px solid #263142;
+  border-radius:17px;
+  min-height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  margin-bottom:15px;
   overflow:hidden;
-  border:1px solid #1b354c
-}
-.panelImage img{
-  width:100%;height:100%;object-fit:cover
-}
-.panelEmoji{font-size:60px}
-
-.panelHead{
-  display:flex;justify-content:space-between;
-  align-items:center;margin-top:12px
-}
-.panelName{font-size:20px;font-weight:bold}
-.online{
-  color:#00ff9d;background:#06382b;
-  border:1px solid #00a96e;
-  border-radius:20px;padding:6px 9px;
-  font-size:10px
-}
-.vip{
-  display:inline-block;margin-top:8px;
-  color:#ffd84d;background:#392d05;
-  border-radius:15px;padding:5px 9px;font-size:10px
+  position:relative;
 }
 
-.features{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:8px;margin-top:13px
+.hero:before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,179,0,.08);
+  filter:blur(5px);
 }
-.feature{
-  background:#07111e;border:1px solid #18354d;
-  border-radius:9px;text-align:center;
-  padding:10px 3px;color:#9eacba;font-size:10px
-}
-.feature b{display:block;color:#00eaff;font-size:13px;margin-bottom:4px}
 
-.packages{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px
+.hero-content{
+  position:relative;
+  z-index:2;
 }
+
+.hero-icon{
+  width:68px;
+  height:68px;
+  margin:auto auto 10px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffb300,#ff7000);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  font-size:25px;
+  font-weight:900;
+}
+
+.hero h2{
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.hero p{
+  color:#8f9bad;
+  font-size:12px;
+}
+
+.package-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
 .package{
-  background:#07111e;border:1px solid #1b3b53;
-  border-radius:11px;padding:12px;color:#c7d0da
+  background:#101722;
+  border:1px solid #263142;
+  border-radius:14px;
+  padding:13px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
-.package.active{
-  border-color:#00ff9d;background:#062a22
+
+.package-info{
+  flex:1;
 }
-.package small{display:block;min-height:30px}
-.price{color:#00ff9d;font-size:18px;font-weight:bold;margin-top:6px}
+
+.package-name{
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+.package-price{
+  font-size:13px;
+  color:#ffbd2e;
+  font-weight:800;
+}
 
 .qty{
-  display:flex;justify-content:center;
-  align-items:center;gap:20px;margin:12px
+  display:flex;
+  align-items:center;
+  gap:7px;
 }
-.qty button{
-  width:42px;height:42px;border-radius:50%;
-  background:#071722;color:#00eaff;
-  border:1px solid #00eaff;font-size:24px
-}
-.qty span{font-size:21px;font-weight:bold}
 
-.quick{display:flex;gap:7px}
-.quick button{
-  flex:1;padding:8px;background:#07111e;
-  color:#aebccc;border:1px solid #1b3b53;
-  border-radius:8px
+.qty button{
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:8px;
+  background:#202b3a;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.qty span{
+  min-width:20px;
+  text-align:center;
+  font-weight:700;
 }
 
 .summary{
-  background:#07111e;border:1px solid #18354d;
-  border-radius:11px;padding:12px
-}
-.row{
-  display:flex;justify-content:space-between;
-  padding:8px 0;border-bottom:1px solid #122b3d;
-  color:#9aaaba;font-size:13px
-}
-.row:last-child{border:0}
-.row b{color:#fff}
-.total b{color:#00ff9d;font-size:18px}
-
-.notice{
-  margin-top:10px;text-align:center;
-  padding:9px;border-radius:9px;
-  background:#211b08;color:#e6d477;
-  border:1px solid #6c5a18;font-size:11px
-}
-.mainBtn{
-  width:100%;padding:14px;margin-top:10px;
-  border:0;border-radius:11px;
-  background:linear-gradient(90deg,#00c6ff,#00ff9d);
-  color:#001016;font-weight:bold;font-size:15px
-}
-.secondary{
-  width:100%;padding:12px;margin-top:8px;
-  border:1px solid #00eaff;border-radius:10px;
-  background:#061925;color:#00eaff;font-weight:bold
+  margin-top:16px;
+  background:#101722;
+  border:1px solid #263142;
+  border-radius:14px;
+  padding:15px;
 }
 
-.bottom{
-  position:fixed;bottom:0;left:0;right:0;
-  height:70px;background:#07111d;
-  border-top:1px solid #18364c;
-  display:grid;grid-template-columns:repeat(6,1fr);
-  z-index:100
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  color:#aeb9c8;
+  font-size:13px;
 }
-.nav{text-align:center;color:#8293a4;font-size:9px;padding-top:7px}
-.nav div{font-size:20px;margin-bottom:3px}
-.nav.active{color:#00eaff}
+
+.summary-row.total{
+  border-top:1px solid #293444;
+  margin-top:6px;
+  padding-top:12px;
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+}
+
+.buy{
+  width:100%;
+  margin-top:13px;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  background:#ffb300;
+  color:#111;
+  font-weight:900;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.update{
+  margin-top:15px;
+  background:#101722;
+  border:1px solid #263142;
+  border-radius:14px;
+  padding:15px;
+}
+
+.update h3{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.update p{
+  font-size:12px;
+  color:#8e9aaa;
+  line-height:1.5;
+}
+
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:30;
+  background:#0c1119;
+  border-top:1px solid #222d3b;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  padding:8px 3px 9px;
+}
+
+.nav-item{
+  border:0;
+  background:none;
+  color:#7f8b9d;
+  font-size:9px;
+  cursor:pointer;
+}
+
+.nav-item .icon{
+  display:block;
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.nav-item.active{
+  color:#ffb300;
+}
 
 .modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.75);
-  z-index:200;display:none;align-items:flex-end
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:rgba(0,0,0,.72);
+  padding:20px;
+  align-items:center;
+  justify-content:center;
 }
-.modalBox{
-  width:100%;max-height:90vh;overflow:auto;
-  background:#091322;border:1px solid #17334b;
-  border-radius:20px 20px 0 0;padding:18px
+
+.modal.show{
+  display:flex;
 }
-.modalTitle{
-  display:flex;justify-content:space-between;
-  color:#00eaff;font-size:19px;margin-bottom:15px
+
+.modal-box{
+  width:100%;
+  max-width:430px;
+  background:#101722;
+  border:1px solid #2a3545;
+  border-radius:17px;
+  padding:18px;
+  max-height:85vh;
+  overflow:auto;
 }
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.modal-head h2{
+  font-size:18px;
+}
+
 .close{
-  background:none;border:0;color:#fff;font-size:25px
+  border:0;
+  background:#222c3b;
+  color:#fff;
+  width:32px;
+  height:32px;
+  border-radius:9px;
+  cursor:pointer;
 }
-.input{
-  width:100%;padding:14px;
-  background:#07111e;color:#fff;
-  border:1px solid #24445c;
-  border-radius:10px;margin-top:7px;
-  font-size:15px
+
+.payment{
+  background:#151e2b;
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:12px;
 }
-.method{
-  border:1px solid #24445c;
-  background:#07111e;border-radius:12px;
-  padding:13px;margin-top:9px
+
+.payment strong{
+  color:#ffbd2e;
 }
-.method.active{border-color:#00eaff}
-.number{
-  color:#00ff9d;font-size:22px;
-  font-weight:bold;margin-top:7px
+
+.payment-number{
+  margin-top:8px;
+  background:#080c12;
+  padding:12px;
+  border-radius:9px;
+  text-align:center;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:1px;
 }
-.copy{
-  float:right;background:#061925;
-  color:#00eaff;border:1px solid #00eaff;
-  padding:6px 10px;border-radius:8px
+
+input{
+  width:100%;
+  padding:13px;
+  margin-top:10px;
+  background:#080d14;
+  color:#fff;
+  border:1px solid #293547;
+  border-radius:10px;
+  outline:none;
 }
-.order{
-  padding:12px;background:#07111e;
-  border:1px solid #18354d;border-radius:10px;
-  margin-bottom:8px
+
+.modal-action{
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border:0;
+  border-radius:10px;
+  background:#ffb300;
+  color:#111;
+  font-weight:900;
 }
-.empty{text-align:center;color:#8293a4;padding:25px}
+
+.empty{
+  text-align:center;
+  color:#8995a5;
+  padding:30px 10px;
+  font-size:13px;
+}
+
+@media(max-width:380px){
+  .panel-selector{
+    grid-template-columns:1fr;
+  }
+
+  .nav-item{
+    font-size:8px;
+  }
+
+  .nav-item .icon{
+    font-size:16px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header class="header">
-  <div class="brand">
-    <img class="logo" src="logo.png"
-         onerror="this.style.display='none'">
-    <div>
-      <b>PANEL RAKIB STORE</b>
-      <small>Premium Panel Shop</small>
-    </div>
-  </div>
+
+  <!-- যদি তোমার আলাদা logo.png থাকে, নিচের logoText-এর জায়গায়
+       <img class="logo" src="logo.png"> ব্যবহার করতে পারো -->
+  <div class="logoText">PR</div>
+
+  <h1>PANEL RAKIB STORE</h1>
 
   <div class="balance">
-    <small>Balance</small>
-    <b id="balance">৳3.05</b>
+    ৳ <span id="balance">3.05</span>
   </div>
-</header>
 
+</header>
 
 <main class="container">
 
-<!-- PANEL -->
-<section class="card">
-  <div class="title">⚡ Select Panel</div>
-  <div class="panels" id="panelList"></div>
-</section>
+  <div class="section-title">Select Panel</div>
 
-
-<!-- DETAILS -->
-<section class="card">
-
-  <div class="panelImage">
-    <img id="panelImg" src="panel1.jpg"
-         onerror="this.style.display='none'">
-    <div id="panelEmoji" class="panelEmoji">⚡</div>
+  <div class="panel-selector">
+    <button class="panel-btn active" onclick="selectPanel(0)">ANGRY MOOD ROOT</button>
+    <button class="panel-btn" onclick="selectPanel(1)">FF GUILD GLORYBOT</button>
+    <button class="panel-btn" onclick="selectPanel(2)">DRIP CLINT ROOT ANDROID</button>
+    <button class="panel-btn" onclick="selectPanel(3)">TM PANEL V22</button>
   </div>
 
-  <div class="panelHead">
-    <div class="panelName" id="panelName"></div>
-    <div class="online">● ONLINE</div>
-  </div>
-
-  <span class="vip">★ VIP PANEL</span>
-
-  <div class="features">
-    <div class="feature"><b>⚡ Fast</b>Instant</div>
-    <div class="feature"><b>🛡 Safe</b>Secure</div>
-    <div class="feature"><b>24/7</b>Support</div>
-  </div>
-
-</section>
-
-
-<!-- PACKAGE -->
-<section class="card">
-  <div class="title">📦 Select Package</div>
-  <div class="packages" id="packageList"></div>
-</section>
-
-
-<!-- QUANTITY -->
-<section class="card">
-  <div class="title">🔢 Quantity</div>
-
-  <div class="qty">
-    <button onclick="changeQty(-1)">−</button>
-    <span id="qty">1</span>
-    <button onclick="changeQty(1)">+</button>
-  </div>
-
-  <div class="quick">
-    <button onclick="setQty(1)">1</button>
-    <button onclick="setQty(2)">2</button>
-    <button onclick="setQty(3)">3</button>
-    <button onclick="setQty(5)">5</button>
-    <button onclick="setQty(10)">10</button>
-  </div>
-</section>
-
-
-<!-- SUMMARY -->
-<section class="card">
-  <div class="title">🧾 Order Summary</div>
-
-  <div class="summary">
-    <div class="row">
-      <span>Panel</span>
-      <b id="sPanel"></b>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-icon" id="heroIcon">AM</div>
+      <h2 id="panelTitle">ANGRY MOOD ROOT</h2>
+      <p id="panelDescription">Select your package below</p>
     </div>
-    <div class="row">
-      <span>Package</span>
-      <b id="sPackage"></b>
+  </section>
+
+  <div class="section-title">Available Package</div>
+
+  <div class="package-list" id="packageList"></div>
+
+  <section class="summary">
+    <div class="summary-row">
+      <span>Selected Package</span>
+      <span id="selectedPackage">None</span>
     </div>
-    <div class="row">
-      <span>Unit Price</span>
-      <b id="sPrice"></b>
-    </div>
-    <div class="row">
+
+    <div class="summary-row">
       <span>Quantity</span>
-      <b id="sQty"></b>
+      <span id="summaryQty">0</span>
     </div>
-    <div class="row total">
+
+    <div class="summary-row total">
       <span>Total</span>
-      <b id="sTotal"></b>
+      <span>৳ <span id="total">0.00</span></span>
     </div>
-  </div>
 
-  <div class="notice" id="notice">
-    ⚠️ Insufficient balance. Please add fund.
-  </div>
+    <button class="buy" onclick="purchase()">
+      PURCHASE NOW
+    </button>
+  </section>
 
-  <button class="mainBtn" onclick="buy()">
-    🛒 PURCHASE NOW
-  </button>
-</section>
-
-
-<!-- UPDATE -->
-<section class="card">
-  <div class="title">📢 Update Channel</div>
-  <div class="empty">
-    নতুন Panel ও Update পেতে Channel-এ Join করুন।
-  </div>
-  <button class="secondary" onclick="updatePage()">
-    📢 JOIN UPDATE CHANNEL
-  </button>
-</section>
+  <section class="update">
+    <h3>📢 Update Channel</h3>
+    <p>
+      PANEL RAKIB STORE-এর নতুন Panel, Update এবং গুরুত্বপূর্ণ
+      খবর এখানে পাওয়া যাবে।
+    </p>
+  </section>
 
 </main>
 
-
-<!-- BOTTOM NAV -->
-<nav class="bottom">
-
-  <div class="nav" onclick="fundPage()">
-    <div>💰</div>Add Fund
-  </div>
-
-  <div class="nav" onclick="ordersPage()">
-    <div>📦</div>All Order
-  </div>
-
-  <div class="nav active">
-    <div>🏪</div>Store
-  </div>
-
-  <div class="nav" onclick="updatePage()">
-    <div>📢</div>Update
-  </div>
-
-  <div class="nav" onclick="helpPage()">
-    <div>🎧</div>Helpline
-  </div>
-
-  <div class="nav" onclick="profilePage()">
-    <div>👤</div>Profile
-  </div>
-
-</nav>
-
-
 <!-- ADD FUND -->
 <div class="modal" id="fundModal">
-<div class="modalBox">
+  <div class="modal-box">
 
-<div class="modalTitle">
-  💰 Add Fund
-  <button class="close" onclick="closeModal('fundModal')">×</button>
+    <div class="modal-head">
+      <h2>💰 Add Fund</h2>
+      <button class="close" onclick="closeModal('fundModal')">×</button>
+    </div>
+
+    <div class="payment">
+      <div>Payment Method: <strong>Nagad Personal</strong></div>
+      <div class="payment-number">01602133359</div>
+      <p style="font-size:12px;color:#8f9aaa;margin-top:9px;">
+        Minimum Deposit: ৳100
+      </p>
+    </div>
+
+    <input id="fundAmount" type="number" placeholder="Enter Amount">
+
+    <input id="trxId" type="text" placeholder="Enter Transaction ID">
+
+    <button class="modal-action" onclick="submitFund()">
+      SUBMIT PAYMENT
+    </button>
+
+  </div>
 </div>
-
-<div class="method active">
-  <b>🟠 Nagad Personal</b>
-  <button class="copy" onclick="copyNagad()">কপি</button>
-  <div class="number">01602133359</div>
-</div>
-
-<p style="color:#9eacba;margin-top:13px;line-height:1.6">
-Nagad App খুলুন → Send Money নির্বাচন করুন →
-এই নম্বরে টাকা পাঠান।
-<br>
-Minimum Deposit: <b style="color:#00ff9d">৳100</b>
-</p>
-
-<label style="display:block;margin-top:15px;color:#9eacba">
-Amount
-</label>
-<input class="input" id="fundAmount"
-       type="number" min="100" value="100">
-
-<label style="display:block;margin-top:12px;color:#9eacba">
-Transaction ID *
-</label>
-<input class="input" id="trx"
-       placeholder="Transaction ID লিখুন">
-
-<button class="mainBtn" onclick="submitFund()">
-  ৳ PAYMENT SUBMIT
-</button>
-
-</div>
-</div>
-
 
 <!-- ORDERS -->
 <div class="modal" id="orderModal">
-<div class="modalBox">
+  <div class="modal-box">
 
-<div class="modalTitle">
-  📦 All Orders
-  <button class="close" onclick="closeModal('orderModal')">×</button>
-</div>
+    <div class="modal-head">
+      <h2>📦 All Order</h2>
+      <button class="close" onclick="closeModal('orderModal')">×</button>
+    </div>
 
-<div id="orderList"></div>
+    <div id="orders" class="empty">
+      No orders found.
+    </div>
 
-</div>
-</div>
-
-
-<!-- PROFILE -->
-<div class="modal" id="profileModal">
-<div class="modalBox">
-
-<div class="modalTitle">
-  👤 Profile
-  <button class="close" onclick="closeModal('profileModal')">×</button>
-</div>
-
-<div class="card">
-  <div style="font-size:20px;font-weight:bold">
-    PANEL RAKIB STORE
-  </div>
-  <div style="color:#9eacba;margin-top:8px">
-    Premium Customer
-  </div>
-
-  <div style="margin-top:18px;color:#9eacba">
-    Current Balance
-  </div>
-  <div id="profileBalance"
-       style="font-size:28px;color:#00ff9d;font-weight:bold">
-    ৳3.05
   </div>
 </div>
 
-<button class="secondary" onclick="fundPage()">
-  ＋ Add Fund
-</button>
+<!-- UPDATE -->
+<div class="modal" id="updateModal">
+  <div class="modal-box">
 
-</div>
-</div>
+    <div class="modal-head">
+      <h2>🔔 Update</h2>
+      <button class="close" onclick="closeModal('updateModal')">×</button>
+    </div>
 
+    <div class="payment">
+      <strong>Latest Update</strong>
+      <p style="font-size:13px;color:#aab5c4;margin-top:8px;">
+        PANEL RAKIB STORE নতুন Update-এর জন্য এই Section দেখুন।
+      </p>
+    </div>
+
+  </div>
+</div>
 
 <!-- HELP -->
 <div class="modal" id="helpModal">
-<div class="modalBox">
+  <div class="modal-box">
 
-<div class="modalTitle">
-  🎧 Helpline
-  <button class="close" onclick="closeModal('helpModal')">×</button>
+    <div class="modal-head">
+      <h2>☎ Helpline</h2>
+      <button class="close" onclick="closeModal('helpModal')">×</button>
+    </div>
+
+    <div class="payment">
+      <strong>Need Help?</strong>
+      <p style="font-size:13px;color:#aab5c4;margin-top:8px;">
+        Payment বা Panel সংক্রান্ত সমস্যায় Admin-এর সাথে যোগাযোগ করুন।
+      </p>
+    </div>
+
+  </div>
 </div>
 
-<div class="empty">
-  কোনো সমস্যা হলে Admin-এর সাথে যোগাযোগ করুন।
+<!-- PROFILE -->
+<div class="modal" id="profileModal">
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>👤 Profile</h2>
+      <button class="close" onclick="closeModal('profileModal')">×</button>
+    </div>
+
+    <div class="payment">
+      <div class="summary-row">
+        <span>Account Balance</span>
+        <strong>৳ <span id="profileBalance">3.05</span></strong>
+      </div>
+      <div class="summary-row">
+        <span>Store</span>
+        <span>PANEL RAKIB STORE</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<button class="mainBtn" onclick="contact()">
-  💬 CONTACT ADMIN
-</button>
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
 
-</div>
-</div>
+  <button class="nav-item" onclick="openModal('fundModal')">
+    <span class="icon">💰</span>
+    Add Fund
+  </button>
 
+  <button class="nav-item" onclick="openModal('orderModal')">
+    <span class="icon">📦</span>
+    All Order
+  </button>
+
+  <button class="nav-item active" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span class="icon">🏪</span>
+    Store
+  </button>
+
+  <button class="nav-item" onclick="openModal('updateModal')">
+    <span class="icon">🔔</span>
+    Update
+  </button>
+
+  <button class="nav-item" onclick="openModal('helpModal')">
+    <span class="icon">☎</span>
+    Helpline
+  </button>
+
+  <button class="nav-item" onclick="openModal('profileModal')">
+    <span class="icon">👤</span>
+    Profile
+  </button>
+
+</nav>
 
 <script>
 
-const panels=[
+const panels = [
 
-{
- name:"ANGRY MOOD ROOT",
- img:"panel1.jpg",
- emoji:"⚡",
- packages:[
-  ["1 Basic [4 Bots]",119.97],
-  ["2 Basic [8 Bots]",235],
-  ["3 Basic [12 Bots]",349.99],
-  ["4 Basic [16 Bots]",465.50]
- ]
-},
+  {
+    name:"ANGRY MOOD ROOT",
+    icon:"AM",
+    description:"Angry Mood Root Panel",
+    packages:[
+      {name:"1 Basic [4 Bots]",price:119.97},
+      {name:"2 Basic [8 Bots]",price:235},
+      {name:"3 Basic [12 Bots]",price:349.99},
+      {name:"4 Basic [16 Bots]",price:465.50}
+    ]
+  },
 
-{
- name:"FF GUILD GLORYBOT",
- img:"panel2.jpg",
- emoji:"🔥",
- packages:[
-  ["1 Day",80],
-  ["7 Days",192.85],
-  ["31 Days",798]
- ]
-},
+  {
+    name:"FF GUILD GLORYBOT",
+    icon:"GG",
+    description:"FF Guild Glorybot Panel",
+    packages:[
+      {name:"1 Day",price:80},
+      {name:"7 Days",price:192.85},
+      {name:"31 Days",price:798}
+    ]
+  },
 
-{
- name:"DRIP CLINT ROOT ANDROID",
- img:"panel3.jpg",
- emoji:"💧",
- packages:[
-  ["1 Day",32],
-  ["7 Days",192],
-  ["15 Days",384],
-  ["31 Days",576]
- ]
-},
+  {
+    name:"DRIP CLINT ROOT ANDROID",
+    icon:"DC",
+    description:"Drip Clint Root Android Panel",
+    packages:[
+      {name:"1 Day",price:32},
+      {name:"7 Days",price:192},
+      {name:"15 Days",price:384},
+      {name:"31 Days",price:576}
+    ]
+  },
 
-{
- name:"TM PANEL V22",
- img:"panel4.jpg",
- emoji:"🚀",
- packages:[
-  ["1 Day",89.11],
-  ["7 Days",299.99],
-  ["15 Days",532],
-  ["31 Days",798]
- ]
-}
+  {
+    name:"TM PANEL V22",
+    icon:"TM",
+    description:"TM Panel V22",
+    packages:[
+      {name:"1 Day",price:89.11},
+      {name:"7 Days",price:299.99},
+      {name:"15 Days",price:532},
+      {name:"31 Days",price:798}
+    ]
+  }
 
 ];
 
-let panel=0;
-let pack=0;
-let quantity=1;
-let balance=3.05;
-let orders=[];
+let currentPanel = 0;
+let selectedIndex = -1;
+let quantity = 0;
+let orders = [];
 
-function money(n){
- return "৳"+Number(n).toFixed(2);
+function money(value){
+  return Number(value).toFixed(2);
 }
 
-function renderPanels(){
+function selectPanel(index){
 
- const box=document.getElementById("panelList");
- box.innerHTML="";
+  currentPanel = index;
+  selectedIndex = -1;
+  quantity = 0;
 
- panels.forEach((p,i)=>{
+  document.querySelectorAll(".panel-btn").forEach((btn,i)=>{
+    btn.classList.toggle("active",i === index);
+  });
 
-  const b=document.createElement("button");
+  document.getElementById("panelTitle").textContent =
+    panels[index].name;
 
-  b.className="panelBtn "+(i===panel?"active":"");
-  b.innerHTML="⚡ "+p.name;
+  document.getElementById("heroIcon").textContent =
+    panels[index].icon;
 
-  b.onclick=()=>{
-   panel=i;
-   pack=0;
-   quantity=1;
-   renderAll();
-  };
+  document.getElementById("panelDescription").textContent =
+    panels[index].description;
 
-  box.appendChild(b);
- });
+  renderPackages();
+  updateSummary();
 }
 
 function renderPackages(){
 
- const box=document.getElementById("packageList");
- box.innerHTML="";
+  const list = document.getElementById("packageList");
+  list.innerHTML = "";
 
- panels[panel].packages.forEach((p,i)=>{
+  panels[currentPanel].packages.forEach((item,index)=>{
 
-  const d=document.createElement("div");
+    const div = document.createElement("div");
+    div.className = "package";
 
-  d.className="package "+(i===pack?"active":"");
+    div.innerHTML = `
+      <div class="package-info">
+        <div class="package-name">${item.name}</div>
+        <div class="package-price">৳ ${money(item.price)}</div>
+      </div>
 
-  d.innerHTML=
-   "<small>"+p[0]+"</small>"+
-   "<div class='price'>"+money(p[1])+"</div>";
+      <div class="qty">
+        <button onclick="changeQty(-1)">−</button>
+        <span>${selectedIndex === index ? quantity : 0}</span>
+        <button onclick="choosePackage(${index})">+</button>
+      </div>
+    `;
 
-  d.onclick=()=>{
-   pack=i;
-   renderPackages();
-   summary();
+    list.appendChild(div);
+  });
+}
+
+function choosePackage(index){
+
+  if(selectedIndex !== index){
+    selectedIndex = index;
+    quantity = 1;
+  }else{
+    quantity++;
+  }
+
+  renderPackages();
+  updateSummary();
+}
+
+function changeQty(amount){
+
+  if(selectedIndex === -1) return;
+
+  quantity += amount;
+
+  if(quantity < 0){
+    quantity = 0;
+  }
+
+  if(quantity === 0){
+    selectedIndex = -1;
+  }
+
+  renderPackages();
+  updateSummary();
+}
+
+function updateSummary(){
+
+  const selected =
+    selectedIndex >= 0
+      ? panels[currentPanel].packages[selectedIndex]
+      : null;
+
+  document.getElementById("selectedPackage").textContent =
+    selected ? selected.name : "None";
+
+  document.getElementById("summaryQty").textContent =
+    quantity;
+
+  const total =
+    selected ? selected.price * quantity : 0;
+
+  document.getElementById("total").textContent =
+    money(total);
+}
+
+function purchase(){
+
+  if(selectedIndex === -1 || quantity <= 0){
+    alert("Please select a package first.");
+    return;
+  }
+
+  const item = panels[currentPanel].packages[selectedIndex];
+  const total = item.price * quantity;
+
+  const order = {
+    panel:panels[currentPanel].name,
+    package:item.name,
+    quantity:quantity,
+    total:total,
+    date:new Date().toLocaleString()
   };
 
-  box.appendChild(d);
- });
+  orders.unshift(order);
+
+  alert(
+    "Order submitted!\n\n" +
+    panels[currentPanel].name +
+    "\n" +
+    item.name +
+    "\nQuantity: " +
+    quantity +
+    "\nTotal: ৳" +
+    money(total)
+  );
+
+  renderOrders();
 }
 
-function renderAll(){
+function renderOrders(){
 
- const p=panels[panel];
+  const box = document.getElementById("orders");
 
- document.getElementById("panelName").innerText=p.name;
- document.getElementById("panelImg").src=p.img;
- document.getElementById("panelEmoji").innerText=p.emoji;
+  if(orders.length === 0){
+    box.innerHTML = "No orders found.";
+    return;
+  }
 
- renderPanels();
- renderPackages();
- summary();
+  box.innerHTML = orders.map(order=>`
+    <div class="payment" style="text-align:left;">
+      <strong>${order.panel}</strong>
+      <div style="font-size:13px;margin-top:7px;">
+        ${order.package}
+      </div>
+      <div style="font-size:12px;color:#9aa6b6;margin-top:5px;">
+        Quantity: ${order.quantity}
+      </div>
+      <div style="font-size:13px;color:#ffbd2e;margin-top:5px;">
+        Total: ৳${money(order.total)}
+      </div>
+      <div style="font-size:10px;color:#697586;margin-top:5px;">
+        ${order.date}
+      </div>
+    </div>
+  `).join("");
 }
 
-function summary(){
+function openModal(id){
+  document.getElementById(id).classList.add("show");
 
- const p=panels[panel];
- const selected=p.packages[pack];
- const total=selected[1]*quantity;
-
- document.getElementById("qty").innerText=quantity;
-
- document.getElementById("sPanel").innerText=p.name;
- document.getElementById("sPackage").innerText=selected[0];
- document.getElementById("sPrice").innerText=money(selected[1]);
- document.getElementById("sQty").innerText=quantity;
- document.getElementById("sTotal").innerText=money(total);
- document.getElementById("balance").innerText=money(balance);
- document.getElementById("profileBalance").innerText=money(balance);
-
- const notice=document.getElementById("notice");
-
- if(balance>=total){
-   notice.innerText="✅ Your balance is sufficient.";
-   notice.style.color="#00ff9d";
-   notice.style.borderColor="#087853";
- }else{
-   notice.innerText="⚠️ Insufficient balance. Please add fund.";
-   notice.style.color="#e6d477";
-   notice.style.borderColor="#6c5a18";
- }
+  if(id === "profileModal"){
+    document.getElementById("profileBalance").textContent =
+      document.getElementById("balance").textContent;
+  }
 }
 
-function changeQty(n){
- quantity+=n;
- if(quantity<1)quantity=1;
- if(quantity>100)quantity=100;
- summary();
-}
-
-function setQty(n){
- quantity=n;
- summary();
-}
-
-function buy(){
-
- const p=panels[panel];
- const selected=p.packages[pack];
- const total=selected[1]*quantity;
-
- if(balance<total){
-   fundPage();
-   return;
- }
-
- if(!confirm(
-  "Order Confirm করুন?\n\n"+
-  p.name+"\n"+
-  selected[0]+"\n"+
-  "Quantity: "+quantity+"\n"+
-  "Total: "+money(total)
- )) return;
-
- balance-=total;
-
- orders.unshift({
-  panel:p.name,
-  package:selected[0],
-  quantity:quantity,
-  total:total,
-  time:new Date().toLocaleString()
- });
-
- summary();
-
- alert("✅ Order Successfully Created!");
-
-}
-
-function fundPage(){
- document.getElementById("fundModal").style.display="flex";
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
 }
 
 function submitFund(){
 
- const amount=Number(
-  document.getElementById("fundAmount").value
- );
+  const amount =
+    document.getElementById("fundAmount").value;
 
- const trx=document.getElementById("trx").value.trim();
+  const trx =
+    document.getElementById("trxId").value.trim();
 
- if(amount<100){
-  alert("Minimum Deposit ৳100");
-  return;
- }
+  if(!amount || Number(amount) < 100){
+    alert("Minimum deposit is ৳100.");
+    return;
+  }
 
- if(!trx){
-  alert("Transaction ID দিন");
-  return;
- }
+  if(!trx){
+    alert("Please enter Transaction ID.");
+    return;
+  }
 
- alert(
-  "✅ Payment Request Submitted\n\n"+
-  "Nagad: 01602133359\n"+
-  "Amount: "+money(amount)+"\n"+
-  "Transaction ID: "+trx+
-  "\n\nAdmin verification-এর পর balance update হবে।"
- );
+  alert(
+    "Payment submitted successfully.\n\n" +
+    "Amount: ৳" + amount +
+    "\nTransaction ID: " + trx
+  );
 
- closeModal("fundModal");
+  document.getElementById("fundAmount").value = "";
+  document.getElementById("trxId").value = "";
+
+  closeModal("fundModal");
 }
 
-function copyNagad(){
+window.onclick = function(event){
 
- navigator.clipboard.writeText("01602133359");
-
- alert("✅ Nagad Number Copied");
-
-}
-
-function ordersPage(){
-
- const box=document.getElementById("orderList");
-
- if(orders.length===0){
-
-  box.innerHTML=
-   "<div class='empty'>📦 এখনো কোনো Order নেই।</div>";
-
- }else{
-
-  box.innerHTML="";
-
-  orders.forEach(o=>{
-
-   box.innerHTML+=
-   "<div class='order'>"+
-   "<b>"+o.panel+"</b><br>"+
-   "<span style='color:#9eacba'>"+
-   o.package+" × "+o.quantity+
-   "</span><br>"+
-   "<strong style='color:#00ff9d'>"+
-   money(o.total)+
-   "</strong><br>"+
-   "<small style='color:#66798b'>"+
-   o.time+
-   "</small>"+
-   "</div>";
-
+  document.querySelectorAll(".modal").forEach(modal=>{
+    if(event.target === modal){
+      modal.classList.remove("show");
+    }
   });
- }
 
- document.getElementById("orderModal").style.display="flex";
-}
+};
 
-function profilePage(){
-
- document.getElementById("profileModal").style.display="flex";
- summary();
-
-}
-
-function helpPage(){
-
- document.getElementById("helpModal").style.display="flex";
-
-}
-
-function updatePage(){
-
- alert(
-  "📢 UPDATE CHANNEL\n\n"+
-  "এখানে তোমার Telegram Update Channel-এর Link বসাতে হবে।"
- );
-
-}
-
-function contact(){
-
- window.open("https://t.me/","_blank");
-
-}
-
-function closeModal(id){
-
- document.getElementById(id).style.display="none";
-
-}
-
-renderAll();
+selectPanel(0);
+renderOrders();
 
 </script>
 
