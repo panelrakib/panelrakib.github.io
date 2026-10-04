@@ -1,267 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PANEL RAKIB STORE</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box}
 body{
-  margin:0;
-  padding:0 0 90px 0;
-  background:#06111f;
-  color:white;
-  font-family:Arial, sans-serif;
+margin:0;padding:0 0 90px;
+background:#06111f;color:#fff;
+font-family:Arial,sans-serif
 }
-
 .header{
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#071321;
-  border-bottom:1px solid #073b50;
+padding:20px;display:flex;justify-content:space-between;
+align-items:center;background:#071321;
+border-bottom:1px solid #073b50
 }
-
-.logo{
-  font-size:22px;
-  font-weight:bold;
-  line-height:1.3;
-}
-
-.logo span{
-  color:#00eaff;
-}
-
+.logo{font-size:22px;font-weight:bold;line-height:1.3}
+.logo span{color:#00eaff}
 .balance{
-  border:2px solid #00df9a;
-  border-radius:30px;
-  padding:10px 15px;
-  color:#00ff9d;
-  font-weight:bold;
+border:2px solid #00df9a;border-radius:30px;
+padding:10px 15px;color:#00ff9d;font-weight:bold;
+cursor:pointer
 }
-
-.container{
-  max-width:650px;
-  margin:auto;
-  padding:20px;
-}
-
+.container{max-width:650px;margin:auto;padding:20px}
 .card{
-  border:1px solid #07516a;
-  border-radius:25px;
-  padding:15px;
-  margin-bottom:25px;
-  background:#081726;
-  box-shadow:0 0 20px rgba(0,220,255,.08);
+border:1px solid #07516a;border-radius:25px;padding:15px;
+margin-bottom:25px;background:#081726
 }
-
-.badges{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-}
-
+.badges{display:flex;justify-content:space-between;margin-bottom:10px}
 .badge{
-  padding:9px 14px;
-  border-radius:25px;
-  background:#064332;
-  border:1px solid #00ef9d;
-  color:#00ffad;
-  font-weight:bold;
+padding:9px 14px;border-radius:25px;
+background:#064332;border:1px solid #00ef9d;
+color:#00ffad;font-weight:bold
 }
-
-.hot{
-  background:#55251b;
-  border-color:#ff633c;
-  color:#ffb09a;
-}
-
+.hot{background:#55251b;border-color:#ff633c;color:#ffb09a}
 .banner{
-  height:190px;
-  border-radius:20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:
-    linear-gradient(135deg,#063b66,#071321,#00506b);
-  border:1px solid #00a9cf;
+height:190px;border-radius:20px;display:flex;
+flex-direction:column;justify-content:center;align-items:center;
+text-align:center;background:linear-gradient(135deg,#063b66,#071321,#00506b);
+border:1px solid #00a9cf
 }
-
-.banner .tm{
-  font-size:55px;
-  font-weight:900;
-  color:#00ddff;
-  text-shadow:0 0 20px #00ddff;
-}
-
-.banner .sub{
-  font-size:17px;
-  font-weight:bold;
-  color:#dffcff;
-  margin-top:8px;
-}
-
-.title{
-  text-align:center;
-  font-size:21px;
-  font-weight:bold;
-  margin:20px 0;
-}
-
+.tm{font-size:55px;font-weight:900;color:#00ddff;text-shadow:0 0 20px #00ddff}
+.sub{font-size:17px;font-weight:bold;color:#dffcff;margin-top:8px}
+.title{text-align:center;font-size:21px;font-weight:bold;margin:20px 0}
 .features{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  padding:15px;
-  border:1px solid #172c42;
-  border-radius:20px;
-  background:#07111e;
+display:grid;grid-template-columns:1fr 1fr;gap:10px;
+padding:15px;border:1px solid #172c42;border-radius:20px;
+background:#07111e
 }
-
-.feature{
-  padding:8px;
-  color:#d9e4f0;
-  font-weight:bold;
-}
-
-.feature b{
-  color:#00eaff;
-}
-
-.price{
-  text-align:center;
-  color:#00ff9d;
-  font-size:25px;
-  font-weight:bold;
-  margin:18px 0;
-}
-
+.feature{padding:8px;color:#d9e4f0;font-weight:bold}
+.feature b{color:#00eaff}
+.price{text-align:center;color:#00ff9d;font-size:25px;font-weight:bold;margin:18px 0}
 button{
-  width:100%;
-  border:0;
-  border-radius:25px;
-  padding:16px;
-  margin-top:10px;
-  color:white;
-  font-size:18px;
-  font-weight:bold;
-  background:linear-gradient(90deg,#11d9ed,#0877ff);
+width:100%;border:0;border-radius:25px;padding:16px;margin-top:10px;
+color:#fff;font-size:18px;font-weight:bold;
+background:linear-gradient(90deg,#11d9ed,#0877ff)
 }
-
-.download{
-  background:linear-gradient(90deg,#0cbd72,#00a768);
-}
-
-.section-title{
-  font-size:22px;
-  font-weight:bold;
-  margin:25px 0 15px;
-}
-
-.packages{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
+.green{background:linear-gradient(90deg,#0cbd72,#00a768)}
+.red{background:#68251f}
+.section-title{font-size:22px;font-weight:bold;margin:25px 0 15px}
+.packages{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .package{
-  padding:24px 10px;
-  text-align:center;
-  border:2px solid #0a4055;
-  border-radius:22px;
-  background:#091424;
-  font-weight:bold;
-  font-size:18px;
+padding:24px 10px;text-align:center;border:2px solid #0a4055;
+border-radius:22px;background:#091424;font-weight:bold;font-size:18px
 }
-
-.package.selected{
-  border-color:#00eaff;
-  box-shadow:0 0 20px rgba(0,234,255,.25);
-}
-
-.package .money{
-  display:block;
-  color:#00ff9d;
-  font-size:22px;
-  margin-top:12px;
-}
-
+.selected{border-color:#00eaff;box-shadow:0 0 20px #00eaff55}
+.money{display:block;color:#00ff9d;font-size:22px;margin-top:12px}
 .bottom{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  height:78px;
-  background:#071321;
-  border-top:1px solid #15384d;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  z-index:10;
+position:fixed;left:0;right:0;bottom:0;height:78px;
+background:#071321;border-top:1px solid #15384d;
+display:flex;justify-content:space-around;align-items:center;z-index:10
 }
-
-.nav{
-  text-align:center;
-  color:#8291a8;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.nav.active{
-  color:#00eaff;
-}
-
+.nav{text-align:center;color:#8291a8;font-size:11px;font-weight:bold}
+.active{color:#00eaff}
 .home{
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  background:#09bdf0;
-  border:6px solid #071321;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:30px;
-  margin-top:-35px;
-  box-shadow:0 0 25px #00dfff;
+width:62px;height:62px;border-radius:50%;background:#09bdf0;
+border:6px solid #071321;display:flex;justify-content:center;
+align-items:center;font-size:30px;margin-top:-35px
 }
-
+.modal{
+display:none;position:fixed;inset:0;background:#000c;z-index:100;
+padding:20px;overflow:auto
+}
+.box{
+max-width:500px;margin:40px auto;background:#081726;
+border:1px solid #00bfe8;border-radius:25px;padding:22px
+}
+.box h2{text-align:center;color:#00eaff}
+input{
+width:100%;padding:15px;margin:7px 0;border-radius:15px;
+border:1px solid #164b62;background:#07111e;color:#fff;font-size:16px
+}
+.info{
+background:#07111e;border:1px solid #17445a;
+border-radius:18px;padding:15px;margin:12px 0;line-height:1.7
+}
+.item{
+border:1px solid #17445a;border-radius:18px;padding:15px;
+margin:10px 0;background:#07111e
+}
+.hide{display:none}
 @media(max-width:430px){
-
-  .logo{
-    font-size:19px;
-  }
-
-  .balance{
-    font-size:14px;
-    padding:9px 12px;
-  }
-
-  .banner{
-    height:165px;
-  }
-
-  .banner .tm{
-    font-size:45px;
-  }
-
-  .packages{
-    gap:10px;
-  }
-
-  .package{
-    padding:20px 7px;
-    font-size:17px;
-  }
-
+.logo{font-size:19px}.balance{font-size:14px;padding:9px 12px}
+.banner{height:165px}.tm{font-size:45px}
+.package{padding:20px 7px;font-size:17px}
 }
 </style>
 </head>
@@ -269,202 +113,612 @@ button{
 <body>
 
 <header class="header">
-
-  <div class="logo">
-    PANEL <span>RAKIB</span><br>
-    STORE
-  </div>
-
-  <div class="balance">
-    🪙 ৳ 0.00 ＋
-  </div>
-
+<div class="logo">PANEL <span>RAKIB</span><br>STORE</div>
+<div class="balance" onclick="openLogin()">🪙 ৳ <span id="topBalance">0.00</span> ＋</div>
 </header>
-
 
 <main class="container">
 
-  <section class="card">
+<section class="card">
 
-    <div class="badges">
-      <div class="badge">🟢 ONLINE</div>
-      <div class="badge hot">🔥 HOT</div>
-    </div>
+<div class="badges">
+<div class="badge">🟢 ONLINE</div>
+<div class="badge hot">🔥 HOT</div>
+</div>
 
+<div class="banner">
+<div class="tm">TM PANEL</div>
+<div class="sub">NON-ROOT ANDROID</div>
+</div>
 
-    <div class="banner">
-      <div class="tm">TM PANEL</div>
-      <div class="sub">NON-ROOT ANDROID</div>
-    </div>
+<div class="title">✨ TM PANEL | NON-ROOT ANDROID ✨</div>
 
+<div class="features">
+<div class="feature">🛡️ <b>Secure</b></div>
+<div class="feature">🎧 <b>24/7 Support</b></div>
+<div class="feature">⚡ <b>Instant Buy</b></div>
+<div class="feature">🔑 <b>Best Key</b></div>
+</div>
 
-    <div class="title">
-      ✨ TM PANEL | NON-ROOT ANDROID ✨
-    </div>
+<div class="price">Starting from ৳70.00</div>
 
+<button onclick="scrollPackages()">🛒 PURCHASE KEY</button>
+<button class="green" onclick="alert('Download link will be added soon.')">
+👥 DOWNLOAD PANEL FILE
+</button>
 
-    <div class="features">
+</section>
 
-      <div class="feature">
-        🛡️ <b>Secure</b>
-      </div>
+<div class="section-title">📦 Select Package</div>
 
-      <div class="feature">
-        🎧 <b>24/7 Support</b>
-      </div>
+<section class="packages" id="packages">
 
-      <div class="feature">
-        ⚡ <b>Instant Buy</b>
-      </div>
+<div class="package selected" onclick="choose(this,'1 day',70)">
+1 day<span class="money">৳ 70.00</span>
+</div>
 
-      <div class="feature">
-        🔑 <b>Best Key</b>
-      </div>
+<div class="package" onclick="choose(this,'7 day',320)">
+7 day<span class="money">৳ 320.00</span>
+</div>
 
-    </div>
+<div class="package" onclick="choose(this,'15 day',449.99)">
+15 day<span class="money">৳ 449.99</span>
+</div>
 
+<div class="package" onclick="choose(this,'31 day',665)">
+31 day<span class="money">৳ 665.00</span>
+</div>
 
-    <div class="price">
-      Starting from ৳70.00
-    </div>
+<div class="package" onclick="choose(this,'Lifetime login',1596)">
+Lifetime login ⚡<span class="money">৳ 1,596.00</span>
+</div>
 
+</section>
 
-    <button onclick="goPackage()">
-      🛒 PURCHASE KEY
-    </button>
-
-
-    <button class="download" onclick="downloadMessage()">
-      👥 DOWNLOAD PANEL FILE
-    </button>
-
-  </section>
-
-
-  <div class="section-title">
-    📦 Select Package
-  </div>
-
-
-  <section class="packages" id="packages">
-
-    <div class="package selected" onclick="selectPackage(this)">
-      1 day
-      <span class="money">৳ 70.00</span>
-    </div>
-
-
-    <div class="package" onclick="selectPackage(this)">
-      7 day
-      <span class="money">৳ 320.00</span>
-    </div>
-
-
-    <div class="package" onclick="selectPackage(this)">
-      15 day
-      <span class="money">৳ 449.99</span>
-    </div>
-
-
-    <div class="package" onclick="selectPackage(this)">
-      31 day
-      <span class="money">৳ 665.00</span>
-    </div>
-
-
-    <div class="package" onclick="selectPackage(this)">
-      Lifetime login ⚡
-      <span class="money">৳ 1,596.00</span>
-    </div>
-
-  </section>
-
-
-  <button onclick="purchase()">
-    💳 CONTINUE PURCHASE
-  </button>
+<button onclick="buy()">💳 CONTINUE PURCHASE</button>
 
 </main>
 
-
 <nav class="bottom">
-
-  <div class="nav">
-    💳<br>
-    Add Fund
-  </div>
-
-  <div class="nav">
-    ☷<br>
-    All Order
-  </div>
-
-  <div class="nav active">
-    <div class="home">⌂</div>
-    Store
-  </div>
-
-  <div class="nav">
-    ☁<br>
-    Update
-  </div>
-
-  <div class="nav">
-    🎧<br>
-    Helpline
-  </div>
-
-  <div class="nav">
-    👤<br>
-    Profile
-  </div>
-
+<div class="nav" onclick="openDeposit()">💳<br>Add Fund</div>
+<div class="nav" onclick="alert('Login required')">☷<br>All Order</div>
+<div class="nav active"><div class="home">⌂</div>Store</div>
+<div class="nav">☁<br>Update</div>
+<div class="nav" onclick="window.open('https://t.me/','_blank')">🎧<br>Helpline</div>
+<div class="nav" onclick="openLogin()">👤<br>Profile</div>
 </nav>
 
 
-<script>
+<!-- LOGIN -->
 
-let selectedPackage = "1 day";
+<div class="modal" id="loginModal">
+<div class="box">
 
-function selectPackage(element){
+<h2>🔐 PANEL RAKIB</h2>
 
-  document.querySelectorAll(".package")
-  .forEach(function(item){
-    item.classList.remove("selected");
-  });
+<div id="loginForm">
 
-  element.classList.add("selected");
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
 
-  selectedPackage = element.innerText;
+<button onclick="login()">LOGIN</button>
+<button class="green" onclick="register()">CREATE ACCOUNT</button>
 
+</div>
+
+<div id="account" class="hide">
+
+<div class="info">
+📧 <span id="showEmail"></span><br>
+💰 Balance: ৳ <b id="accountBalance">0.00</b>
+</div>
+
+<button onclick="openDeposit()">💳 ADD FUND</button>
+
+<button id="adminBtn" class="hide" onclick="openAdmin()">
+👑 ADMIN PANEL
+</button>
+
+<button class="red" onclick="logout()">LOGOUT</button>
+
+</div>
+
+<button class="red" onclick="closeModals()">CLOSE</button>
+
+</div>
+</div>
+
+
+<!-- DEPOSIT -->
+
+<div class="modal" id="depositModal">
+<div class="box">
+
+<h2>💳 ADD FUND</h2>
+
+<div class="info">
+Nagad Send Money Number:<br>
+<b style="font-size:24px;color:#00ff9d">01602133359</b>
+<br><br>
+টাকা Send Money করার পর নিচের তথ্য দিন।
+</div>
+
+<input id="amount" type="number" placeholder="Amount ৳">
+<input id="trx" type="text" placeholder="Nagad Transaction ID">
+
+<button onclick="deposit()">📤 SUBMIT DEPOSIT</button>
+<button class="red" onclick="closeModals()">CLOSE</button>
+
+</div>
+</div>
+
+
+<!-- ADMIN -->
+
+<div class="modal" id="adminModal">
+<div class="box">
+
+<h2>👑 ADMIN PANEL</h2>
+
+<div id="pending">Loading...</div>
+
+<button onclick="loadDeposits()">🔄 REFRESH</button>
+<button class="red" onclick="closeModals()">CLOSE</button>
+
+</div>
+</div>
+
+
+<script type="module">
+
+import {initializeApp}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+getDoc,
+setDoc,
+addDoc,
+collection,
+getDocs,
+runTransaction,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+const firebaseConfig={
+apiKey:"AIzaSyCqTyEftcApfXIdie4AibnwNNi4Ek1Vlug",
+authDomain:"panel-rakib-shop.firebaseapp.com",
+projectId:"panel-rakib-shop",
+storageBucket:"panel-rakib-shop.firebasestorage.app",
+messagingSenderId:"729378633784",
+appId:"1:729378633784:web:f32c934624dd982a814ecd"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+const ADMIN="HJhKQtLBuKcIKtQbtAhv3a9sEFQ2";
+
+let user=null;
+let packageName="1 day";
+let packagePrice=70;
+
+
+/* PACKAGE */
+
+window.choose=function(el,name,price){
+document.querySelectorAll(".package")
+.forEach(x=>x.classList.remove("selected"));
+el.classList.add("selected");
+packageName=name;
+packagePrice=price;
+};
+
+window.scrollPackages=function(){
+document.getElementById("packages")
+.scrollIntoView({behavior:"smooth"});
+};
+
+
+/* LOGIN WINDOW */
+
+window.openLogin=function(){
+document.getElementById("loginModal").style.display="block";
+};
+
+window.closeModals=function(){
+document.querySelectorAll(".modal")
+.forEach(x=>x.style.display="none");
+};
+
+
+/* REGISTER */
+
+window.register=async function(){
+
+let e=document.getElementById("email").value.trim();
+let p=document.getElementById("password").value;
+
+if(!e||!p){
+alert("Email এবং Password দিন");
+return;
 }
 
-function goPackage(){
-
-  document.getElementById("packages")
-  .scrollIntoView({
-    behavior:"smooth"
-  });
-
+if(p.length<6){
+alert("Password কমপক্ষে 6 characters");
+return;
 }
 
-function purchase(){
+try{
 
-  alert(
-    "Selected Package:\n\n" +
-    selectedPackage +
-    "\n\nPurchase system can be connected here."
-  );
+let r=await createUserWithEmailAndPassword(auth,e,p);
 
+await setDoc(doc(db,"users",r.user.uid),{
+email:e,
+balance:0,
+createdAt:serverTimestamp()
+});
+
+alert("Account তৈরি হয়েছে ✅");
+
+}catch(err){
+alert(err.message);
 }
 
-function downloadMessage(){
+};
 
-  alert(
-    "TM Panel download link will be added here."
-  );
 
+/* LOGIN */
+
+window.login=async function(){
+
+let e=document.getElementById("email").value.trim();
+let p=document.getElementById("password").value;
+
+if(!e||!p){
+alert("Email এবং Password দিন");
+return;
 }
-html
-</script
+
+try{
+await signInWithEmailAndPassword(auth,e,p);
+alert("Login successful ✅");
+}catch(err){
+alert(err.message);
+}
+
+};
+
+
+/* AUTH */
+
+onAuthStateChanged(auth,async u=>{
+
+user=u;
+
+if(!u){
+document.getElementById("topBalance").innerText="0.00";
+return;
+}
+
+document.getElementById("loginForm").classList.add("hide");
+document.getElementById("account").classList.remove("hide");
+
+document.getElementById("showEmail").innerText=u.email;
+
+if(u.uid===ADMIN){
+document.getElementById("adminBtn").classList.remove("hide");
+}
+
+await loadBalance();
+
+});
+
+
+/* BALANCE */
+
+async function loadBalance(){
+
+if(!user)return;
+
+let ref=doc(db,"users",user.uid);
+let snap=await getDoc(ref);
+
+if(!snap.exists()){
+
+await setDoc(ref,{
+email:user.email,
+balance:0,
+createdAt:serverTimestamp()
+});
+
+setBalance(0);
+return;
+}
+
+setBalance(Number(snap.data().balance||0));
+}
+
+function setBalance(n){
+document.getElementById("topBalance").innerText=n.toFixed(2);
+document.getElementById("accountBalance").innerText=n.toFixed(2);
+}
+
+
+/* DEPOSIT */
+
+window.openDeposit=function(){
+
+if(!user){
+alert("আগে Login করুন");
+openLogin();
+return;
+}
+
+closeModals();
+document.getElementById("depositModal").style.display="block";
+};
+
+
+window.deposit=async function(){
+
+if(!user){
+alert("আগে Login করুন");
+return;
+}
+
+let amount=Number(document.getElementById("amount").value);
+let trx=document.getElementById("trx").value.trim();
+
+if(amount<=0){
+alert("সঠিক Amount দিন");
+return;
+}
+
+if(!trx){
+alert("Transaction ID দিন");
+return;
+}
+
+try{
+
+await addDoc(collection(db,"deposits"),{
+userId:user.uid,
+email:user.email,
+amount:amount,
+trxId:trx,
+status:"pending",
+createdAt:serverTimestamp()
+});
+
+document.getElementById("amount").value="";
+document.getElementById("trx").value="";
+
+alert("Deposit request পাঠানো হয়েছে ✅");
+
+closeModals();
+
+}catch(err){
+alert(err.message);
+}
+
+};
+
+
+/* ADMIN */
+
+window.openAdmin=function(){
+
+if(!user||user.uid!==ADMIN){
+alert("Admin access only");
+return;
+}
+
+closeModals();
+document.getElementById("adminModal").style.display="block";
+loadDeposits();
+
+};
+
+
+window.loadDeposits=async function(){
+
+let box=document.getElementById("pending");
+box.innerHTML="Loading...";
+
+try{
+
+let snap=await getDocs(collection(db,"deposits"));
+box.innerHTML="";
+let count=0;
+
+snap.forEach(d=>{
+
+let x=d.data();
+
+if(x.status!=="pending")return;
+
+count++;
+
+let div=document.createElement("div");
+div.className="item";
+
+div.innerHTML=
+"📧 "+(x.email||"")+"<br><br>"+
+"💰 ৳ "+Number(x.amount||0).toFixed(2)+"<br><br>"+
+"🧾 "+(x.trxId||"")+
+"<button onclick=\"approve('"+d.id+"')\">✅ APPROVE</button>"+
+"<button class=\"red\" onclick=\"reject('"+d.id+"')\">❌ REJECT</button>";
+
+box.appendChild(div);
+
+});
+
+if(count===0){
+box.innerHTML="<div class='info'>No pending deposits</div>";
+}
+
+}catch(err){
+box.innerHTML="<div class='info'>"+err.message+"</div>";
+}
+
+};
+
+
+/* APPROVE */
+
+window.approve=async function(id){
+
+if(!user||user.uid!==ADMIN)return;
+
+if(!confirm("Deposit approve করবেন?"))return;
+
+try{
+
+await runTransaction(db,async t=>{
+
+let depRef=doc(db,"deposits",id);
+let dep=await t.get(depRef);
+
+if(!dep.exists())throw new Error("Deposit not found");
+
+let data=dep.data();
+
+if(data.status!=="pending")
+throw new Error("Already processed");
+
+let userRef=doc(db,"users",data.userId);
+let us=await t.get(userRef);
+
+if(!us.exists())throw new Error("User not found");
+
+let old=Number(us.data().balance||0);
+let add=Number(data.amount||0);
+
+t.update(userRef,{balance:old+add});
+
+t.update(depRef,{
+status:"approved",
+approvedBy:user.uid,
+approvedAt:serverTimestamp()
+});
+
+});
+
+alert("Deposit approved ✅");
+loadDeposits();
+
+}catch(err){
+alert(err.message);
+}
+
+};
+
+
+/* REJECT */
+
+window.reject=async function(id){
+
+if(!user||user.uid!==ADMIN)return;
+
+if(!confirm("Deposit reject করবেন?"))return;
+
+try{
+
+await runTransaction(db,async t=>{
+
+let ref=doc(db,"deposits",id);
+let snap=await t.get(ref);
+
+if(!snap.exists())throw new Error("Not found");
+
+t.update(ref,{
+status:"rejected",
+rejectedBy:user.uid,
+rejectedAt:serverTimestamp()
+});
+
+});
+
+alert("Rejected ❌");
+loadDeposits();
+
+}catch(err){
+alert(err.message);
+}
+
+};
+
+
+/* BUY */
+
+window.buy=async function(){
+
+if(!user){
+alert("Purchase করতে আগে Login করুন");
+openLogin();
+return;
+}
+
+let snap=await getDoc(doc(db,"users",user.uid));
+
+if(!snap.exists()){
+alert("User account পাওয়া যায়নি");
+return;
+}
+
+let balance=Number(snap.data().balance||0);
+
+if(balance<packagePrice){
+
+alert(
+"Balance কম ❌\n\n"+
+"Package: "+packageName+
+"\nPrice: ৳"+packagePrice.toFixed(2)+
+"\nBalance: ৳"+balance.toFixed(2)
+);
+
+return;
+}
+
+alert(
+"Package: "+packageName+
+"\nPrice: ৳"+packagePrice.toFixed(2)+
+"\n\nPurchase delivery system পরে connect করা হবে."
+);
+
+};
+
+
+/* LOGOUT */
+
+window.logout=async function(){
+
+await signOut(auth);
+closeModals();
+
+document.getElementById("loginForm").classList.remove("hide");
+document.getElementById("account").classList.add("hide");
+
+alert("Logout successful");
+
+};
+
+</script>
+
+</body>
+</html>
 
