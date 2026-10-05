@@ -29,4 +29,33 @@ section{padding:0 14px}.head{display:flex;justify-content:space-between;align-it
 </section></div>
 <nav><div class="nav"><a>💳<br>Add Fund</a><a>📦<br>All Order</a><a>🏪<br>Store</a><a>🔄<br>Update</a><a>👤<br>Profile</a></div></nav>
 <script>function openCard(b){const c=b.closest('.card');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'HIDE DETAILS ↑':'VIEW DETAILS ↓'}</script>
+
+<style>
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:50;padding:18px;overflow:auto}
+.modal.show{display:block}.modalbox{max-width:560px;margin:45px auto;background:#081421;border:1px solid #1de3ff66;border-radius:20px;padding:18px}
+.modalbox h3{margin-top:0}.input{width:100%;padding:11px;margin:6px 0;background:#050b13;border:1px solid #23415c;border-radius:10px;color:white}.action{width:100%;padding:11px;margin-top:8px;border:0;border-radius:10px;background:#13ddff;font-weight:bold}
+.close{float:right;background:none;border:0;color:#9db0c2;font-size:20px}.orderrow{border-top:1px solid #17334a;padding:10px 0;font-size:12px}
+</style>
+<div id="modal" class="modal"><div class="modalbox"><button class="close" onclick="closeModal()">✕</button><div id="modalContent"></div></div></div>
+<script>
+const KEY='panelrakib_state';
+let state=JSON.parse(localStorage.getItem(KEY)||'{"user":null,"balance":0,"orders":[]}');
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+function modal(title,body){document.getElementById('modalContent').innerHTML='<h3>'+title+'</h3>'+body;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function login(){modal('Account','<input id="em" class="input" placeholder="Email"><input id="pw" class="input" type="password" placeholder="Password"><button class="action" onclick="doLogin()">LOGIN</button>')}
+function doLogin(){let e=document.getElementById('em').value.trim();if(!e)return alert('Email দিন');state.user=e;save();closeModal();refresh()}
+function fund(){modal('Add Fund','<p>নগদ নম্বর: <b>01602133359</b></p><p>Minimum deposit: ৳100</p><input id="amt" class="input" type="number" placeholder="Amount"><button class="action" onclick="addFund()">FUND REQUEST</button>')}
+function addFund(){let n=Number(document.getElementById('amt').value);if(n<100)return alert('Minimum ৳100');state.balance+=n;save();closeModal();refresh();alert('Balance updated');}
+function orders(){let rows=state.orders.length?state.orders.map(x=>'<div class="orderrow">'+x.name+' — '+x.pkg+' — ৳'+x.price+'</div>').join(''):'<p>No orders yet.</p>';modal('My Orders',rows)}
+function profile(){modal('Profile',state.user?'<p>Logged in as: '+state.user+'</p><p>Balance: ৳'+state.balance.toFixed(2)+'</p><button class="action" onclick="logout()">LOGOUT</button>':'<p>Guest account</p><button class="action" onclick="login()">LOGIN / CREATE ACCOUNT</button>')}
+function logout(){state.user=null;save();closeModal();refresh()}
+function buy(name,pkg,price){if(!state.user){login();return} if(state.balance<price){fund();return} state.balance-=price;state.orders.push({name,pkg,price});save();refresh();alert('Order placed successfully')}
+function refresh(){document.querySelector('.balance').textContent='৳ '+state.balance.toFixed(2);document.querySelector('.stats .stat:nth-child(2) b').textContent='৳'+state.balance.toFixed(2);document.querySelector('.stats .stat:nth-child(3) b').textContent=state.orders.length;document.querySelector('.stats .stat:first-child b').textContent=state.user?'Account':'Guest'}
+document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',()=>{let row=b.closest('.pkg');let txt=row.childNodes[0].textContent.trim();let price=Number(row.querySelector('b').textContent.replace('৳',''));buy(b.closest('.card').querySelector('.name').textContent,txt,price)}));
+document.querySelectorAll('nav a')[0].onclick=e=>{e.preventDefault();fund()};
+document.querySelectorAll('nav a')[1].onclick=e=>{e.preventDefault();orders()};
+document.querySelectorAll('nav a')[4].onclick=e=>{e.preventDefault();profile()};
+refresh();
+</script>
 </body></html>
